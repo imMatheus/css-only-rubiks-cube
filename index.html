@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div class="container" id="c">
+            <div class="cube y-top x-left z-front"></div>
+            <div class="cube y-top x-middle z-front"></div>
+            <div class="cube y-top x-right z-front"></div>
+            <div class="cube y-middle x-left z-front"></div>
+            <div class="cube y-middle x-middle z-front"></div>
+            <div class="cube y-middle x-right z-front"></div>
+            <div class="cube y-bottom x-left z-front"></div>
+            <div class="cube y-bottom x-middle z-front"></div>
+            <div class="cube y-bottom x-right z-front"></div>
+
+            <div class="cube y-top x-left z-middle"></div>
+            <div class="cube y-top x-middle z-middle"></div>
+            <div class="cube y-top x-right z-middle"></div>
+            <div class="cube y-middle x-left z-middle"></div>
+            <div class="cube y-middle x-middle z-middle"></div>
+            <div class="cube y-middle x-right z-middle"></div>
+            <div class="cube y-bottom x-left z-middle"></div>
+            <div class="cube y-bottom x-middle z-middle"></div>
+            <div class="cube y-bottom x-right z-middle"></div>
+
+            <div class="cube y-top x-left z-back"></div>
+            <div class="cube y-top x-middle z-back"></div>
+            <div class="cube y-top x-right z-back"></div>
+            <div class="cube y-middle x-left z-back"></div>
+            <div class="cube y-middle x-middle z-back"></div>
+            <div class="cube y-middle x-right z-back"></div>
+            <div class="cube y-bottom x-left z-back"></div>
+            <div class="cube y-bottom x-middle z-back"></div>
+            <div class="cube y-bottom x-right z-back"></div>
+        </div>
+
+        <script>
+            const cubes = document.querySelectorAll('.cube')
+
+            for (const cube of cubes) {
+                cube.innerHTML = `
+                <div class="face face--front"></div>
+                <div class="face face--back"></div>
+                <div class="face face--right"></div>
+                <div class="face face--left"></div>
+                <div class="face face--top"></div>
+                <div class="face face--bottom"></div>`
+            }
+        </script>
+    </body>
+</html>
