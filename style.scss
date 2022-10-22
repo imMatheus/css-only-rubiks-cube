@@ -22,24 +22,20 @@ $cube_size: 80px;
     // perspective: $cube_size * 200;
     transform-style: preserve-3d;
     // transition: all 800ms ease-in-out;
-    transform: rotateY(55deg) rotateX(-30deg) rotateZ(0deg);
+    transform: rotateY(35deg) rotateX(30deg) rotateZ(10deg);
+    // animation: bye infinite 8000ms ease-in-out forwards;
     &:hover {
-        animation: bye infinite 4000ms linear;
     }
 }
 
 @keyframes bye {
     0%,
     100% {
-        transform: rotateY(30deg) rotateX(-30deg) rotateZ(-90deg);
+        transform: rotateY(-20deg) rotateX(20deg) rotateZ(-40deg);
     }
 
-    40% {
-        transform: rotateY(360deg) rotateX(90deg) rotateZ(180deg);
-    }
-
-    70% {
-        transform: rotateY(90deg) rotateX(360deg) rotateZ(360deg);
+    50% {
+        transform: rotateY(-360deg) rotateX(-360deg) rotateZ(-360deg);
     }
 }
 
@@ -67,7 +63,7 @@ $cube_size: 80px;
     border: solid black 1px;
 
     $rotate: 90deg;
-    $default_color: #000;
+    $default_color: #00000011;
     &--front {
         background: var(--front-color, $default_color);
         transform: rotateY(0deg) translateZ(math.div($cube_size, 2));
@@ -147,104 +143,191 @@ $orange: #ffa500;
     }
 }
 
+@mixin z-front-transform($x: 0px, $y: 0px, $z: 0px) {
+    transform: translate3d($x, $y, $z);
+}
+
+@mixin z-middle-transform($x: 0px, $y: 0px, $z: 0px) {
+    transform: translate3d($x, $y, calc(-1 * $cube_size + $z));
+}
+
+@mixin z-back-transform($x: 0px, $y: 0px, $z: 0px) {
+    transform: translate3d($x, $y, calc((-2 * $cube_size) + $z));
+}
+
 .z {
     &-front {
-        transform: translate3d(
-            var(--translateX, 0px),
-            var(--translateY, 0px),
-            calc(0p + var(--translateZ, 0px))
-        );
+        @include z-front-transform;
     }
     &-middle {
-        transform: translate3d(
-            var(--translateX, 0px),
-            var(--translateY, 0px),
-            calc(#{-$cube_size} + var(--translateZ, 0px))
-        );
+        @include z-middle-transform;
     }
     &-back {
-        transform: translate3d(
-            var(--translateX, 0px),
-            var(--translateY, 0px),
-            calc(#{-2 * $cube_size} + var(--translateZ, 0px))
-        );
+        @include z-back-transform;
     }
 }
 
-$animation-time: 1000ms;
+$animation-time: 2000ms;
 
 .y-bottom {
-    animation: r-bottom $animation-time * 2 forwards;
-
     &.x-left {
-        transform-origin: 120px 0px -80px;
+        $transform-origin: 120px 0px -80px;
+
+        transform-origin: $transform-origin;
+
+        @mixin x-left-ani($name, $count: 0) {
+            @keyframes #{$name} {
+                0% {
+                    rotate: y 0deg;
+                    transform-origin: $transform-origin;
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        160px - ($cube_size * $count)
+                    );
+                }
+
+                99% {
+                    rotate: y 90deg;
+                    transform-origin: $transform-origin;
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        160px - ($cube_size * $count)
+                    );
+                }
+
+                100% {
+                    transform-origin: initial;
+                    rotate: y 90deg;
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        320px - ($cube_size * $count)
+                    );
+                }
+            }
+        }
+
+        &.z-front {
+            animation: yb-xl-zf $animation-time forwards;
+            @include x-left-ani(yb-xl-zf);
+        }
+        &.z-middle {
+            animation: yb-xl-zm $animation-time forwards;
+            @include x-left-ani(yb-xl-zm, 1);
+        }
+        &.z-back {
+            animation: yb-xl-zb $animation-time forwards;
+            @include x-left-ani(yb-xl-zb, 2);
+        }
     }
     &.x-middle {
-        transform-origin: 40px 0px -80px;
+        $transform-origin: 40px 0px -80px;
+
+        transform-origin: $transform-origin;
+
+        @mixin x-middle-ani($name, $count: 0) {
+            @keyframes #{$name} {
+                0% {
+                    rotate: y 0deg;
+                    transform-origin: $transform-origin;
+
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        160px - ($cube_size * $count)
+                    );
+                }
+
+                99% {
+                    rotate: y 90deg;
+                    transform-origin: $transform-origin;
+
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        160px - ($cube_size * $count)
+                    );
+                }
+
+                100% {
+                    transform-origin: initial;
+                    rotate: y 90deg;
+                    @include z-back-transform(
+                        80px,
+                        0px,
+                        240px - ($cube_size * $count)
+                    );
+                }
+            }
+        }
+
+        &.z-front {
+            animation: yb-xm-zf $animation-time forwards;
+            @include x-middle-ani(yb-xm-zf);
+        }
+        &.z-middle {
+            animation: yb-xm-zm $animation-time forwards;
+            @include x-middle-ani(yb-xm-zm, 1);
+        }
+        &.z-back {
+            animation: yb-xm-zb $animation-time forwards;
+            @include x-middle-ani(yb-xm-zb, 2);
+        }
     }
     &.x-right {
-        transform-origin: -40px 0px -80px;
-    }
-}
+        $transform-origin: -40px 0px -80px;
 
-@keyframes r-bottom {
-    0% {
-        rotate: y 0deg;
-    }
-    50% {
-        rotate: y 90deg;
-    }
-    100% {
-        rotate: y 180deg;
-    }
-}
+        transform-origin: $transform-origin;
 
-.y-top {
-    animation: r-top $animation-time forwards;
-    // rotate: y -90deg;
-    animation-delay: $animation-time * 2;
+        @mixin x-right-ani($name, $count: 0) {
+            @keyframes #{$name} {
+                0% {
+                    rotate: y 0deg;
+                    transform-origin: $transform-origin;
 
-    &.x-left {
-        transform-origin: 120px 0px -80px;
-    }
-    &.x-middle {
-        transform-origin: 40px 0px -80px;
-    }
-    &.x-right {
-        transform-origin: -40px 0px -80px;
-    }
-}
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        160px - ($cube_size * $count)
+                    );
+                }
 
-@keyframes r-top {
-    from {
-        rotate: y 0deg;
+                99% {
+                    rotate: y 90deg;
+                    transform-origin: $transform-origin;
+
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        160px - ($cube_size * $count)
+                    );
+                }
+
+                100% {
+                    transform-origin: initial;
+                    rotate: y 90deg;
+                    @include z-back-transform(
+                        160px,
+                        0px,
+                        160px - ($cube_size * $count)
+                    );
+                }
+            }
+        }
+
+        &.z-front {
+            animation: yb-xr-zf $animation-time forwards;
+            @include x-right-ani(yb-xr-zf);
+        }
+        &.z-middle {
+            animation: yb-xr-zm $animation-time forwards;
+            @include x-right-ani(yb-xr-zm, 1);
+        }
+        &.z-back {
+            animation: yb-xr-zb $animation-time forwards;
+            @include x-right-ani(yb-xr-zb, 2);
+        }
     }
-    to {
-        rotate: y -90deg;
-    }
-}
-
-.x-left {
-    animation: r-left $animation-time forwards;
-    animation-delay: $animation-time * 3;
-    // // rotate: x 90deg;
-
-    // &.y-top {
-    //     // transform-origin: 0px 120px -80px;
-    // }
-    // &.y-middle {
-    //     // transform-origin: 0px 40px -80px;
-    // }
-    // &.y-bottom {
-    //     // transform-origin: 0px -40px -80px;
-    // }
-}
-
-@keyframes r-left {
-    // from {
-    //     rotate: x 0deg;
-    // }
-    // to {
-    //     rotate: x -90deg;
-    // }
 }
