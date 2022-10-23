@@ -18,7 +18,7 @@
     transition: all 700ms;
 
     $rotate: 90deg;
-    $default_color: #00000077;
+    $default_color: #000000cc;
     &--front {
         background: var(--front-color, $default_color);
         transform: rotateY(0deg) translateZ(math.div($cube_size, 2));
