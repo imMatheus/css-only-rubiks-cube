@@ -163,7 +163,7 @@
   }
 }
 .y-middle {
-  animation: r-middle 2000ms forwards;
+  animation: r-middle 5000ms forwards;
   animation-delay: 5000ms;
 }
 .y-middle.x-left {
@@ -180,11 +180,20 @@
   0% {
     rotate: y 0deg;
   }
-  50% {
+  20% {
     rotate: y 90deg;
   }
-  100% {
+  40% {
     rotate: y 180deg;
+  }
+  60% {
+    rotate: y 270deg;
+  }
+  80% {
+    rotate: y 360deg;
+  }
+  100% {
+    rotate: y 450deg;
   }
 }
 .settings {

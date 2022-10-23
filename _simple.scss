@@ -112,7 +112,7 @@ $animation-time: 1000ms;
 }
 
 .y-middle {
-    animation: r-middle $animation-time * 2 forwards;
+    animation: r-middle $animation-time * 5 forwards;
     animation-delay: $animation-time * 5;
 
     &.x-left {
@@ -131,10 +131,19 @@ $animation-time: 1000ms;
     0% {
         rotate: y 0deg;
     }
-    50% {
+    20% {
         rotate: y 90deg;
     }
-    100% {
+    40% {
         rotate: y 180deg;
+    }
+    60% {
+        rotate: y 270deg;
+    }
+    80% {
+        rotate: y 360deg;
+    }
+    100% {
+        rotate: y 450deg;
     }
 }
