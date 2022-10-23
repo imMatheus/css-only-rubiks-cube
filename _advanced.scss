@@ -1,0 +1,591 @@
+@use 'cube' as *;
+
+// positions
+.y {
+    &-top {
+        top: var(--top, 0px);
+    }
+    &-middle {
+        top: var(--top, $cube_size);
+    }
+    &-bottom {
+        bottom: var(--bottom, 0px);
+    }
+}
+
+.x {
+    &-left {
+        left: var(--left, 0px);
+    }
+    &-middle {
+        left: var(--left, $cube_size);
+    }
+    &-right {
+        right: var(--right, 0px);
+    }
+}
+
+@mixin z-front-transform($x: 0px, $y: 0px, $z: 0px) {
+    transform: translate3d($x, $y, $z);
+}
+
+@mixin z-middle-transform($x: 0px, $y: 0px, $z: 0px) {
+    transform: translate3d($x, $y, calc(-1 * $cube_size + $z));
+}
+
+@mixin z-back-transform($x: 0px, $y: 0px, $z: 0px) {
+    transform: translate3d($x, $y, calc((-2 * $cube_size) + $z));
+}
+
+.z {
+    &-front {
+        @include z-front-transform;
+    }
+    &-middle {
+        @include z-middle-transform;
+    }
+    &-back {
+        @include z-back-transform;
+    }
+}
+
+$animation-time: 5000ms;
+
+.y-bottom {
+    &.x-left {
+        $transform-origin: 120px 0px -80px;
+
+        @mixin x-left-ani($name, $count: 0) {
+            @keyframes #{$name} {
+                0% {
+                    rotate: y 0deg;
+                    transform-origin: $transform-origin;
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                99% {
+                    rotate: y 90deg;
+                    transform-origin: $transform-origin;
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                100% {
+                    transform-origin: unset;
+                    rotate: y 90deg;
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (4 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+            }
+        }
+
+        &.z-front {
+            animation: yb-xl-zf $animation-time forwards;
+            @include x-left-ani(yb-xl-zf);
+        }
+        &.z-middle {
+            animation: yb-xl-zm $animation-time forwards;
+            @include x-left-ani(yb-xl-zm, 1);
+        }
+        &.z-back {
+            animation: yb-xl-zb $animation-time forwards;
+            @include x-left-ani(yb-xl-zb, 2);
+        }
+    }
+    &.x-middle {
+        $transform-origin: 40px 0px -80px;
+
+        @mixin x-middle-ani($name, $count: 0) {
+            @keyframes #{$name} {
+                0% {
+                    rotate: y 0deg;
+                    transform-origin: $transform-origin;
+
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                99% {
+                    rotate: y 90deg;
+                    transform-origin: $transform-origin;
+
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                100% {
+                    transform-origin: unset;
+                    rotate: y 90deg;
+                    @include z-back-transform(
+                        80px,
+                        0px,
+                        (3 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+            }
+        }
+
+        &.z-front {
+            animation: yb-xm-zf $animation-time forwards;
+            @include x-middle-ani(yb-xm-zf);
+        }
+        &.z-middle {
+            animation: yb-xm-zm $animation-time forwards;
+            @include x-middle-ani(yb-xm-zm, 1);
+        }
+        &.z-back {
+            animation: yb-xm-zb $animation-time forwards;
+            @include x-middle-ani(yb-xm-zb, 2);
+        }
+    }
+    &.x-right {
+        $transform-origin: -40px 0px -80px;
+
+        @mixin x-right-ani($name, $count: 0) {
+            @keyframes #{$name} {
+                0% {
+                    rotate: y 0deg;
+                    transform-origin: $transform-origin;
+
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                99% {
+                    rotate: y 90deg;
+                    transform-origin: $transform-origin;
+
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                100% {
+                    transform-origin: unset;
+                    rotate: y 90deg;
+                    @include z-back-transform(
+                        (2 * $cube_size),
+                        0px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+            }
+        }
+
+        &.z-front {
+            animation: yb-xr-zf $animation-time forwards;
+            @include x-right-ani(yb-xr-zf);
+        }
+        &.z-middle {
+            animation: yb-xr-zm $animation-time forwards;
+            @include x-right-ani(yb-xr-zm, 1);
+        }
+        &.z-back {
+            animation: yb-xr-zb $animation-time forwards;
+            @include x-right-ani(yb-xr-zb, 2);
+        }
+    }
+}
+
+.y-top {
+    animation-delay: $animation-time !important;
+    &.x-left {
+        $transform-origin: 120px 0px -80px;
+
+        @mixin y-top-x-left-ani($name, $count: 0) {
+            @keyframes #{$name} {
+                0% {
+                    rotate: y 0deg;
+                    transform-origin: $transform-origin;
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                99% {
+                    rotate: y 90deg;
+                    transform-origin: $transform-origin;
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                100% {
+                    transform-origin: unset;
+                    rotate: y 90deg;
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (4 * $cube-size) - ($cube_size * $count)
+                    );
+                }
+            }
+        }
+
+        &.z-front {
+            animation: yt-xl-zf $animation-time forwards;
+            @include y-top-x-left-ani(yt-xl-zf);
+        }
+        &.z-middle {
+            animation: yt-xl-zm $animation-time forwards;
+            @include y-top-x-left-ani(yt-xl-zm, 1);
+        }
+        &.z-back {
+            animation: yt-xl-zb $animation-time forwards;
+            @include y-top-x-left-ani(yt-xl-zb, 2);
+        }
+    }
+    &.x-middle {
+        $transform-origin: 40px 0px -80px;
+
+        @mixin y-top-x-middle-ani($name, $count: 0) {
+            @keyframes #{$name} {
+                0% {
+                    rotate: y 0deg;
+                    transform-origin: $transform-origin;
+
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (2 * $cube-size) - ($cube_size * $count)
+                    );
+                }
+
+                99% {
+                    rotate: y 90deg;
+                    transform-origin: $transform-origin;
+
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                100% {
+                    transform-origin: unset;
+                    rotate: y 90deg;
+                    @include z-back-transform(
+                        $cube-size,
+                        0px,
+                        (3 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+            }
+        }
+
+        &.z-front {
+            animation: yt-xm-zf $animation-time forwards;
+            @include y-top-x-middle-ani(yt-xm-zf);
+        }
+        &.z-middle {
+            animation: yt-xm-zm $animation-time forwards;
+            @include y-top-x-middle-ani(yt-xm-zm, 1);
+        }
+        &.z-back {
+            animation: yt-xm-zb $animation-time forwards;
+            @include y-top-x-middle-ani(yt-xm-zb, 2);
+        }
+    }
+    &.x-right {
+        $transform-origin: -40px 0px -80px;
+
+        transform-origin: $transform-origin;
+
+        @mixin y-top-x-right-ani($name, $count: 0) {
+            @keyframes #{$name} {
+                0% {
+                    rotate: y 0deg;
+                    transform-origin: $transform-origin;
+
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        160px - ($cube_size * $count)
+                    );
+                }
+
+                99% {
+                    rotate: y 90deg;
+                    transform-origin: $transform-origin;
+
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        160px - ($cube_size * $count)
+                    );
+                }
+
+                100% {
+                    transform-origin: unset;
+                    rotate: y 90deg;
+                    @include z-back-transform(
+                        160px,
+                        0px,
+                        160px - ($cube_size * $count)
+                    );
+                }
+            }
+        }
+
+        &.z-front {
+            animation: yt-xr-zf $animation-time forwards;
+            @include y-top-x-right-ani(yt-xr-zf);
+        }
+        &.z-middle {
+            animation: yt-xr-zm $animation-time forwards;
+            @include y-top-x-right-ani(yt-xr-zm, 1);
+        }
+        &.z-back {
+            animation: yt-xr-zb $animation-time forwards;
+            @include y-top-x-right-ani(yt-xr-zb, 2);
+        }
+    }
+}
+
+.y-top.z-back {
+    $transform-origin: 0px 0px 0px;
+
+    @mixin y-top-z-back-ani($name, $count: 0) {
+        @keyframes #{$name} {
+            0% {
+                rotate: z 0deg;
+                // transform-origin: $transform-origin;
+                @include z-back-transform(
+                    0px,
+                    0px,
+                    (4 * $cube-size) - ($cube_size * $count)
+                );
+            }
+
+            99% {
+                rotate: z 270deg;
+                // transform-origin: $transform-origin;
+                @include z-back-transform(
+                    0px,
+                    0px,
+                    (4 * $cube-size) - ($cube_size * $count)
+                );
+            }
+
+            100% {
+                transform-origin: unset;
+                rotate: z 270deg;
+                @include z-back-transform(
+                    -120px * $count,
+                    0px,
+                    (4 * $cube-size) - ($cube_size * $count)
+                );
+            }
+        }
+    }
+
+    // &.x-left {
+    //     animation: yt-xl-zb $animation-time forwards;
+    //     @include y-top-z-back-ani(yt-xl-zb);
+    // }
+    // &.x-middle {
+    //     animation: yt-xm-zb $animation-time forwards;
+    //     @include y-top-z-back-ani(yt-xm-zb, 1);
+    // }
+    // &.x-right {
+    //     animation: yt-xr-zb $animation-time forwards;
+    //     @include y-top-z-back-ani(yt-xr-zb, 2);
+    // }
+
+    // animation: yt-xl-zb $animation-time forwards;
+    // @include y-top-z-back-ani(yt-xl-zb, 2);
+
+    // display: none;
+    // transform-origin: $transform-origin !important;
+    // rotate: x 20deg;
+    // // rotate: 90deg 90deg 90deg !important ;
+    // rotate: x 90deg !important;
+    // transform: translate3d(-90px, -90px, calc((-3 * $cube_size) - 500px));
+    // rotate: y 0.35turn !important;
+    // rotate: z 1.27rad !important;
+
+    // @include z-front-transform;
+}
+
+.x-left {
+    &.y-top {
+        $transform-origin: 0px 40px 0px;
+
+        @mixin x-left-y-top-ani($name, $count: 0) {
+            @keyframes #{$name} {
+                0% {
+                    rotate: x 0deg;
+                    transform-origin: $transform-origin;
+                    // @include z-back-transform(
+                    //     0px,
+                    //     0px,
+                    //     (1 * $cube_size) - ($cube_size * $count)
+                    // );
+                }
+
+                99% {
+                    rotate: x -90deg;
+                    transform-origin: $transform-origin;
+                    // @include z-back-transform(
+                    //     0px,
+                    //     0px,
+                    //     (1 * $cube_size) - ($cube_size * $count)
+                    // );
+                }
+
+                100% {
+                    transform-origin: unset;
+                    rotate: x -90deg;
+                    @include z-back-transform(
+                        0px,
+                        0px,
+                        (4 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+            }
+        }
+
+        // &.z-front {
+        //     animation: yt-xl-zf $animation-time forwards;
+        //     @include x-left-y-top-ani(yt-xl-zf);
+        // }
+        // &.z-middle {
+        //     animation: yt-xl-zm $animation-time forwards;
+        //     @include x-left-y-top-ani(yt-xl-zm, 1);
+        // }
+        // &.z-back {
+        //     animation: yt-xl-zb $animation-time forwards;
+        //     @include x-left-y-top-ani(yt-xl-zb, 2);
+        // }
+    }
+    &.y-middle {
+        // display: none;
+        $transform-origin: 0px 40px 0px;
+
+        @mixin x-left-y-middle-ani($name, $count: 0) {
+            @keyframes #{$name} {
+                0% {
+                    rotate: x 0deg;
+                    transform-origin: $transform-origin;
+                    @include z-back-transform(
+                        0px,
+                        80px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                99% {
+                    rotate: x -90deg;
+                    transform-origin: $transform-origin;
+                    @include z-back-transform(
+                        0px,
+                        80px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                100% {
+                    transform-origin: unset;
+                    rotate: x -90deg;
+                    @include z-back-transform(
+                        0px,
+                        80px,
+                        (3 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+            }
+        }
+
+        // &.z-front {
+        //     animation: ym-xl-zf $animation-time forwards;
+        //     @include x-left-y-middle-ani(ym-xl-zf);
+        // }
+        // &.z-middle {
+        //     animation: ym-xl-zm $animation-time forwards;
+        //     @include x-left-y-middle-ani(ym-xl-zm, 1);
+        // }
+        // &.z-back {
+        //     animation: ym-xl-zb $animation-time forwards;
+        //     @include x-left-y-middle-ani(ym-xl-zb, 2);
+        // }
+    }
+
+    &.y-bottom {
+        // display: none;
+
+        $transform-origin: 0px 0px 0px;
+
+        @mixin x-left-y-bottom-ani($name, $count: 0) {
+            @keyframes #{$name} {
+                0% {
+                    rotate: x 0deg;
+                    transform-origin: $transform-origin;
+                    @include z-back-transform(
+                        0px,
+                        160px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                99% {
+                    rotate: x -90deg;
+                    transform-origin: $transform-origin;
+                    @include z-back-transform(
+                        0px,
+                        160px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+
+                100% {
+                    transform-origin: unset;
+                    rotate: x -90deg;
+                    @include z-back-transform(
+                        0px,
+                        160px,
+                        (2 * $cube_size) - ($cube_size * $count)
+                    );
+                }
+            }
+        }
+
+        // &.z-front {
+        //     animation: yb-xl-zf $animation-time forwards;
+        //     @include x-left-y-bottom-ani(yb-xl-zf);
+        // }
+        // &.z-middle {
+        //     animation: yb-xl-zm $animation-time forwards;
+        //     @include x-left-y-bottom-ani(yb-xl-zm, 1);
+        // }
+        // &.z-back {
+        //     animation: yb-xl-zb $animation-time forwards;
+        //     @include x-left-y-bottom-ani(yb-xl-zb, 2);
+        // }
+    }
+}

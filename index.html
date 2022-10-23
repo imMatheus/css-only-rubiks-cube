@@ -6,8 +6,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <link rel="stylesheet" href="./style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
+        <div class="header">
+            <h1>CSS only Rubik's Cube</h1>
+            <p>By <mark>Matheus Mendes</mark></p>
+        </div>
+
+        <div class="settings">
+            Color palette
+
+            <form>
+                <input type="radio" name="color-palette" id="color-1" />
+                <label for="color-1" class="color-display">hej</label>
+                <input type="radio" name="color-palette" id="color-2" />
+                <label for="color-2" class="color-display">hej</label>
+                <input type="radio" name="color-palette" id="color-3" />
+                <label for="color-3" class="color-display">hej</label>
+                <input type="radio" name="color-palette" id="color-4" />
+                <label for="color-4" class="color-display">hej</label>
+            </form>
+        </div>
+
         <div class="container" id="c">
             <div class="cube y-top x-left z-front"></div>
             <div class="cube y-top x-middle z-front"></div>

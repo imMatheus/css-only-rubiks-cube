@@ -1,0 +1,78 @@
+.settings {
+    background-color: orange;
+
+    form input {
+        display: none;
+    }
+}
+
+body:has(#color-1:checked) {
+    background-image: url(./L.png);
+}
+
+body:has(#color-2:checked) {
+    background-image: url(./L-2.png);
+
+    .z-front {
+        --front-color: #f00;
+    }
+    .z-back {
+        --back-color: #0f0;
+    }
+    .x-left {
+        --left-color: #00f;
+    }
+    .x-right {
+        --right-color: #ffa500;
+    }
+    .y-top {
+        --top-color: #fff;
+    }
+    .y-bottom {
+        --bottom-color: #ffff00;
+    }
+}
+body:has(#color-3:checked) {
+    background-image: url(./L-3.png);
+
+    .z-front {
+        --front-color: #d4c685;
+    }
+    .z-back {
+        --back-color: #f7ef81;
+    }
+    .x-left {
+        --left-color: #cfe795;
+    }
+    .x-right {
+        --right-color: #a7d3a6;
+    }
+    .y-top {
+        --top-color: #99c1b9;
+    }
+    .y-bottom {
+        --bottom-color: #add2c2;
+    }
+}
+body:has(#color-4:checked) {
+    background-image: url(./L-2.png);
+
+    .z-front {
+        --front-color: #059ba8;
+    }
+    .z-back {
+        --back-color: #403692;
+    }
+    .x-left {
+        --left-color: #8ac53f;
+    }
+    .x-right {
+        --right-color: #455e4e;
+    }
+    .y-top {
+        --top-color: #a7a2a9;
+    }
+    .y-bottom {
+        --bottom-color: #add2c2;
+    }
+}

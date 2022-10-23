@@ -1,0 +1,20 @@
+.header {
+    position: absolute;
+    top: 0px;
+    color: #fffcf2;
+    padding: 10px;
+    // background: #3a86ff77;
+
+    h1 {
+        font-size: 4rem;
+        font-weight: 700;
+    }
+    p {
+        mark {
+            padding: 0px 8px;
+            border-radius: 8px;
+            background-color: #252422;
+            color: #eb5e28;
+        }
+    }
+}

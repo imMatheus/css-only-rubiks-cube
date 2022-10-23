@@ -1,0 +1,33 @@
+$cube_size: 80px;
+.container {
+    width: $cube_size * 3;
+    height: $cube_size * 3;
+
+    position: relative;
+    // perspective: $cube_size * 200;
+    transform-style: preserve-3d;
+    // transition: all 800ms ease-in-out;
+    transform: rotateY(35deg) rotateX(-35deg) rotateZ(0deg);
+    &:hover {
+        animation: rotate-container 6000ms;
+        // cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+}
+
+@keyframes rotate-container {
+    0%,
+    100% {
+        transform: rotateY(35deg) rotateX(-35deg) rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotateY(145deg) rotateX(-180deg) rotateZ(60deg);
+    }
+    50% {
+        transform: rotateY(390deg) rotateX(-300deg) rotateZ(0deg);
+    }
+
+    75% {
+        transform: rotateY(220deg) rotateX(-100deg) rotateZ(20deg);
+    }
+}

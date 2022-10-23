@@ -1,0 +1,110 @@
+@use 'cube' as *;
+
+// positions
+
+.y {
+    &-top {
+        top: var(--top, 0px);
+    }
+    &-middle {
+        top: var(--top, $cube_size);
+    }
+    &-bottom {
+        bottom: var(--bottom, 0px);
+    }
+}
+
+.x {
+    &-left {
+        left: var(--left, 0px);
+    }
+    &-middle {
+        left: var(--left, $cube_size);
+    }
+    &-right {
+        right: var(--right, 0px);
+    }
+}
+
+.z {
+    &-front {
+        transform: translate3d(
+            var(--translateX, 0px),
+            var(--translateY, 0px),
+            calc(0p + var(--translateZ, 0px))
+        );
+    }
+    &-middle {
+        transform: translate3d(
+            var(--translateX, 0px),
+            var(--translateY, 0px),
+            calc(#{-$cube_size} + var(--translateZ, 0px))
+        );
+    }
+    &-back {
+        transform: translate3d(
+            var(--translateX, 0px),
+            var(--translateY, 0px),
+            calc(#{-2 * $cube_size} + var(--translateZ, 0px))
+        );
+    }
+}
+
+$animation-time: 1000ms;
+
+.y-bottom {
+    animation: r-bottom $animation-time * 2 forwards;
+
+    &.x-left {
+        transform-origin: 120px 0px -80px;
+    }
+    &.x-middle {
+        transform-origin: 40px 0px -80px;
+    }
+    &.x-right {
+        transform-origin: -40px 0px -80px;
+    }
+}
+
+@keyframes r-bottom {
+    0% {
+        rotate: y 0deg;
+    }
+    50% {
+        rotate: y 90deg;
+    }
+    100% {
+        rotate: y 180deg;
+    }
+}
+
+.y-top {
+    animation: r-top $animation-time * 3 forwards;
+
+    animation-delay: $animation-time * 2;
+
+    &.x-left {
+        transform-origin: 120px 0px -80px;
+    }
+    &.x-middle {
+        transform-origin: 40px 0px -80px;
+    }
+    &.x-right {
+        transform-origin: -40px 0px -80px;
+    }
+}
+
+@keyframes r-top {
+    0% {
+        rotate: y 0deg;
+    }
+    33% {
+        rotate: y -90deg;
+    }
+    66% {
+        rotate: y -180deg;
+    }
+    100% {
+        rotate: y -270deg;
+    }
+}
