@@ -9,7 +9,7 @@ $cube_size: 80px;
     // transition: all 800ms ease-in-out;
     transform: rotateY(35deg) rotateX(-35deg) rotateZ(0deg);
     &:hover {
-        animation: rotate-container 6000ms;
+        animation: rotate-container 6000ms infinite;
         // cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 }
@@ -24,7 +24,7 @@ $cube_size: 80px;
         transform: rotateY(145deg) rotateX(-180deg) rotateZ(60deg);
     }
     50% {
-        transform: rotateY(390deg) rotateX(-300deg) rotateZ(0deg);
+        transform: rotateY(450deg) rotateX(-300deg) rotateZ(0deg);
     }
 
     75% {

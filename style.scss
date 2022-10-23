@@ -9,17 +9,17 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: 'Roboto Mono', monospace;
 }
 
 body {
-    background-color: #cc5803;
+    font-family: 'Roboto Mono', monospace;
     display: grid;
     place-items: center;
     min-height: 100vh;
-    background-image: url(./L.png);
+    background-image: url(./L-1.png);
     background-size: 8px;
     background-position: center;
+    color: var(--text-color);
     transition: background-size 800ms cubic-bezier(0.19, 1, 0.22, 1);
 
     &:has(.container:hover) {

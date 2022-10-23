@@ -1,78 +1,147 @@
-.settings {
-    background-color: orange;
+@use 'sass:list';
 
-    form input {
-        display: none;
+$sides: (
+    'z-front': 'front',
+    'z-back': 'back',
+    'x-left': 'left',
+    'x-right': 'right',
+    'y-top': 'top',
+    'y-bottom': 'bottom',
+);
+$colors-1: #fdf0d5, #3a86ff, #8338ec, #ff006e, #ffbe0b, #fb5607;
+$colors-2: #f00, #0f0, #00f, #ffa500, #fff, #ffff00;
+$colors-3: #d4c685, #f7ef81, #cfe795, #a7d3a6, #99c1b9, #add2c2;
+$colors-4: #059ba8, #403692, #8ac53f, #455e4e, #a7a2a9, #add2c2;
+
+$colors: $colors-1, $colors-2, $colors-3, $colors-4;
+
+.settings {
+    // background-color: white;
+    max-width: 1200px;
+    padding: 20px;
+    gap: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    h3 {
+        font-size: 1.3rem;
+        font-weight: 800;
+        letter-spacing: 10px;
+        background-color: var(--background-color);
+        margin-bottom: 20px;
+        width: max-width;
+        display: inline-block;
+        padding: 2px 8px;
     }
+
+    input {
+        display: none;
+        width: 0px;
+        position: absolute;
+    }
+
+    .labels-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .color-display {
+        display: flex;
+        border: solid 2px black;
+        border-radius: 12px;
+        overflow: hidden;
+        height: 50px;
+        cursor: pointer;
+        position: relative;
+        transition: border-color 200ms;
+
+        .color-span {
+            flex: 1;
+            width: 100%;
+        }
+    }
+
+    @each $color-palette in $colors {
+        $i: list.index(($colors), ($color-palette));
+        .color-display:nth-child(#{$i}) {
+            &:has(input:checked),
+            &:hover {
+                border-color: list.nth($color-palette, 1);
+            }
+            @each $color in $color-palette {
+                $i: list.index(($color-palette), ($color));
+
+                .color-span:nth-child(#{$i + 1}) {
+                    background-color: $color;
+                }
+            }
+        }
+    }
+
+    .opacity-display {
+        padding: 10px;
+        text-align: center;
+        border: solid 2px black;
+        border-radius: 8px;
+        cursor: pointer;
+        background: var(--background-color);
+        transition: all 700ms;
+        font-size: 20px;
+        letter-spacing: 2px;
+        &:has(input:checked) {
+            opacity: 0.7;
+            border-color: var(--background-color);
+        }
+    }
+}
+
+@mixin append-colors($colors) {
+    @each $side, $value in $sides {
+        $i: list.index(($sides), ($side $value));
+        .#{$side} {
+            #{'--' + $value + '-color'}: list.nth($colors, $i);
+        }
+    }
+}
+
+body:has(#opacity-solid:checked) {
+    --face-opacity: 1;
+}
+
+body:has(#opacity-see-through:checked) {
+    --face-opacity: 0.7;
+}
+
+body:has(#opacity-hollow:checked) {
+    --face-opacity: 0.3;
 }
 
 body:has(#color-1:checked) {
-    background-image: url(./L.png);
+    --text-color: #{list.nth($colors-1, 1)};
+    --background-color: #{list.nth($colors-1, 4)};
+    background-image: url(./L-1.png);
+    @include append-colors($colors-1);
 }
 
 body:has(#color-2:checked) {
+    --text-color: #{list.nth($colors-2, 2)};
+    --background-color: #{list.nth($colors-2, 4)};
     background-image: url(./L-2.png);
-
-    .z-front {
-        --front-color: #f00;
-    }
-    .z-back {
-        --back-color: #0f0;
-    }
-    .x-left {
-        --left-color: #00f;
-    }
-    .x-right {
-        --right-color: #ffa500;
-    }
-    .y-top {
-        --top-color: #fff;
-    }
-    .y-bottom {
-        --bottom-color: #ffff00;
-    }
+    @include append-colors($colors-2);
 }
 body:has(#color-3:checked) {
     background-image: url(./L-3.png);
-
-    .z-front {
-        --front-color: #d4c685;
-    }
-    .z-back {
-        --back-color: #f7ef81;
-    }
-    .x-left {
-        --left-color: #cfe795;
-    }
-    .x-right {
-        --right-color: #a7d3a6;
-    }
-    .y-top {
-        --top-color: #99c1b9;
-    }
-    .y-bottom {
-        --bottom-color: #add2c2;
-    }
+    --text-color: #{list.nth($colors-3, 2)};
+    --background-color: #{list.nth($colors-3, 5)};
+    @include append-colors($colors-3);
 }
 body:has(#color-4:checked) {
-    background-image: url(./L-2.png);
-
-    .z-front {
-        --front-color: #059ba8;
-    }
-    .z-back {
-        --back-color: #403692;
-    }
-    .x-left {
-        --left-color: #8ac53f;
-    }
-    .x-right {
-        --right-color: #455e4e;
-    }
-    .y-top {
-        --top-color: #a7a2a9;
-    }
-    .y-bottom {
-        --bottom-color: #add2c2;
-    }
+    --text-color: #fff;
+    --background-color: #{list.nth($colors-4, 4)};
+    background-image: url(./L-4.png);
+    @include append-colors($colors-4);
 }

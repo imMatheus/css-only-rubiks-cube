@@ -1,5 +1,5 @@
 @use 'cube' as *;
-
+@use 'sass:math';
 // positions
 
 .y {
@@ -56,13 +56,14 @@ $animation-time: 1000ms;
     animation: r-bottom $animation-time * 2 forwards;
 
     &.x-left {
-        transform-origin: 120px 0px -80px;
+        transform-origin: ($cube-size + math.div($cube-size, 2)) 0px
+            (-1 * $cube-size);
     }
     &.x-middle {
-        transform-origin: 40px 0px -80px;
+        transform-origin: math.div($cube-size, 2) 0px (-1 * $cube-size);
     }
     &.x-right {
-        transform-origin: -40px 0px -80px;
+        transform-origin: math.div((-1 * $cube-size), 2) 0px (-1 * $cube-size);
     }
 }
 
@@ -84,13 +85,14 @@ $animation-time: 1000ms;
     animation-delay: $animation-time * 2;
 
     &.x-left {
-        transform-origin: 120px 0px -80px;
+        transform-origin: ($cube-size + math.div($cube-size, 2)) 0px
+            (-1 * $cube-size);
     }
     &.x-middle {
-        transform-origin: 40px 0px -80px;
+        transform-origin: (math.div($cube-size, 2)) 0px (-1 * $cube-size);
     }
     &.x-right {
-        transform-origin: -40px 0px -80px;
+        transform-origin: (math.div(-1 * $cube-size, 2)) 0px (-1 * $cube-size);
     }
 }
 
@@ -106,5 +108,33 @@ $animation-time: 1000ms;
     }
     100% {
         rotate: y -270deg;
+    }
+}
+
+.y-middle {
+    animation: r-middle $animation-time * 2 forwards;
+    animation-delay: $animation-time * 5;
+
+    &.x-left {
+        transform-origin: ($cube-size + math.div($cube-size, 2)) 0px
+            (-1 * $cube-size);
+    }
+    &.x-middle {
+        transform-origin: (math.div($cube-size, 2)) 0px (-1 * $cube-size);
+    }
+    &.x-right {
+        transform-origin: (math.div(-1 * $cube-size, 2)) 0px (-1 * $cube-size);
+    }
+}
+
+@keyframes r-middle {
+    0% {
+        rotate: y 0deg;
+    }
+    50% {
+        rotate: y 90deg;
+    }
+    100% {
+        rotate: y 180deg;
     }
 }

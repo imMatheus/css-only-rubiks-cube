@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <link rel="icon" type="image/x-icon" href="/cube.png" />
         <link rel="stylesheet" href="./style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,24 +15,111 @@
         />
     </head>
     <body>
+        <!-- <h1>L</h1> -->
         <div class="header">
             <h1>CSS only Rubik's Cube</h1>
             <p>By <mark>Matheus Mendes</mark></p>
         </div>
 
         <div class="settings">
-            Color palette
+            <div>
+                <h3>Color palette</h3>
 
-            <form>
-                <input type="radio" name="color-palette" id="color-1" />
-                <label for="color-1" class="color-display">hej</label>
-                <input type="radio" name="color-palette" id="color-2" />
-                <label for="color-2" class="color-display">hej</label>
-                <input type="radio" name="color-palette" id="color-3" />
-                <label for="color-3" class="color-display">hej</label>
-                <input type="radio" name="color-palette" id="color-4" />
-                <label for="color-4" class="color-display">hej</label>
-            </form>
+                <form>
+                    <div class="labels-container">
+                        <label for="color-1" class="color-display">
+                            <input
+                                type="radio"
+                                name="color-palette"
+                                id="color-1"
+                                checked
+                            />
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                        </label>
+                        <label for="color-2" class="color-display">
+                            <input
+                                type="radio"
+                                name="color-palette"
+                                id="color-2"
+                            />
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                        </label>
+                        <label for="color-3" class="color-display">
+                            <input
+                                type="radio"
+                                name="color-palette"
+                                id="color-3"
+                            />
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                        </label>
+                        <label for="color-4" class="color-display">
+                            <input
+                                type="radio"
+                                name="color-palette"
+                                id="color-4"
+                            />
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                            <div class="color-span"></div>
+                        </label>
+                    </div>
+                </form>
+            </div>
+
+            <div>
+                <h3>Cube opacity</h3>
+                <form>
+                    <div class="labels-container">
+                        <label for="opacity-solid" class="opacity-display">
+                            <input
+                                type="radio"
+                                name="opacity-picker"
+                                id="opacity-solid"
+                                checked
+                            />
+                            Solid
+                        </label>
+
+                        <label
+                            for="opacity-see-through"
+                            class="opacity-display"
+                        >
+                            <input
+                                type="radio"
+                                name="opacity-picker"
+                                id="opacity-see-through"
+                            />
+                            See through
+                        </label>
+                        <label for="opacity-hollow" class="opacity-display">
+                            <input
+                                type="radio"
+                                name="opacity-picker"
+                                id="opacity-hollow"
+                            />
+                            Hollow
+                        </label>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <div class="container" id="c">
