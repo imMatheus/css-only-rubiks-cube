@@ -102,6 +102,7 @@ $colors: $colors-1, $colors-2, $colors-3, $colors-4;
 @mixin append-colors($colors) {
     @each $side, $value in $sides {
         $i: list.index(($sides), ($side $value));
+        #{'--default-' + $value + '-color'}: list.nth($colors, $i);
         .#{$side} {
             #{'--' + $value + '-color'}: list.nth($colors, $i);
         }

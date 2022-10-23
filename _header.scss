@@ -17,4 +17,13 @@
             color: #eb5e28;
         }
     }
+
+    a {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

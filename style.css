@@ -1,6 +1,7 @@
 .container {
   width: 240px;
   height: 240px;
+  z-index: 999;
   position: relative;
   transform-style: preserve-3d;
   transform: rotateY(35deg) rotateX(-35deg) rotateZ(0deg);
@@ -40,27 +41,27 @@
   transition: all 700ms;
 }
 .face--front {
-  background: var(--front-color, #000000);
+  background: var(--front-color, rgba(0, 0, 0, 0.4666666667));
   transform: rotateY(0deg) translateZ(40px);
 }
 .face--back {
-  background: var(--back-color, #000000);
+  background: var(--back-color, rgba(0, 0, 0, 0.4666666667));
   transform: rotateY(180deg) translateZ(40px);
 }
 .face--left {
-  background: var(--left-color, #000000);
+  background: var(--left-color, rgba(0, 0, 0, 0.4666666667));
   transform: rotateY(-90deg) translateZ(40px);
 }
 .face--right {
-  background: var(--right-color, #000000);
+  background: var(--right-color, rgba(0, 0, 0, 0.4666666667));
   transform: rotateY(90deg) translateZ(40px);
 }
 .face--top {
-  background: var(--top-color, #000000);
+  background: var(--top-color, rgba(0, 0, 0, 0.4666666667));
   transform: rotateX(90deg) translateZ(40px);
 }
 .face--bottom {
-  background: var(--bottom-color, #000000);
+  background: var(--bottom-color, rgba(0, 0, 0, 0.4666666667));
   transform: rotateX(-90deg) translateZ(40px);
 }
 
@@ -78,6 +79,13 @@
   border-radius: 8px;
   background-color: #252422;
   color: #eb5e28;
+}
+.header a {
+  text-decoration: none;
+  color: black;
+}
+.header a:hover {
+  text-decoration: underline;
 }
 
 .y-top {
@@ -193,7 +201,7 @@
     rotate: y 360deg;
   }
   100% {
-    rotate: y 450deg;
+    rotate: y 360deg;
   }
 }
 .settings {
@@ -356,6 +364,12 @@ body:has(#color-1:checked) {
   --text-color: #fdf0d5;
   --background-color: #ff006e;
   background-image: url(./L-1.png);
+  --default-front-color: #fdf0d5;
+  --default-back-color: #3a86ff;
+  --default-left-color: #8338ec;
+  --default-right-color: #ff006e;
+  --default-top-color: #ffbe0b;
+  --default-bottom-color: #fb5607;
 }
 body:has(#color-1:checked) .z-front {
   --front-color: #fdf0d5;
@@ -380,6 +394,12 @@ body:has(#color-2:checked) {
   --text-color: #0f0;
   --background-color: #ffa500;
   background-image: url(./L-2.png);
+  --default-front-color: #f00;
+  --default-back-color: #0f0;
+  --default-left-color: #00f;
+  --default-right-color: #ffa500;
+  --default-top-color: #fff;
+  --default-bottom-color: #ffff00;
 }
 body:has(#color-2:checked) .z-front {
   --front-color: #f00;
@@ -404,6 +424,12 @@ body:has(#color-3:checked) {
   background-image: url(./L-3.png);
   --text-color: #f7ef81;
   --background-color: #99c1b9;
+  --default-front-color: #d4c685;
+  --default-back-color: #f7ef81;
+  --default-left-color: #cfe795;
+  --default-right-color: #a7d3a6;
+  --default-top-color: #99c1b9;
+  --default-bottom-color: #add2c2;
 }
 body:has(#color-3:checked) .z-front {
   --front-color: #d4c685;
@@ -428,6 +454,12 @@ body:has(#color-4:checked) {
   --text-color: #fff;
   --background-color: #455e4e;
   background-image: url(./L-4.png);
+  --default-front-color: #059ba8;
+  --default-back-color: #403692;
+  --default-left-color: #8ac53f;
+  --default-right-color: #455e4e;
+  --default-top-color: #a7a2a9;
+  --default-bottom-color: #add2c2;
 }
 body:has(#color-4:checked) .z-front {
   --front-color: #059ba8;

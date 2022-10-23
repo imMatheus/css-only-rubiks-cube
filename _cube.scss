@@ -2,7 +2,7 @@ $cube_size: 80px;
 .container {
     width: $cube_size * 3;
     height: $cube_size * 3;
-
+    z-index: 999;
     position: relative;
     // perspective: $cube_size * 200;
     transform-style: preserve-3d;

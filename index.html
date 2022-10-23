@@ -17,7 +17,14 @@
     <body>
         <div class="header">
             <h1>CSS only Rubik's Cube</h1>
-            <p>By <mark>Matheus Mendes</mark></p>
+            <p>
+                Pssst, try hovering over the cube :). Want to see the code?
+                <a
+                    href="https://github.com/imMatheus/rubiks-cube"
+                    target="_blank"
+                    >Click me</a
+                >
+            </p>
         </div>
 
         <div class="settings">
@@ -126,8 +133,14 @@
                 <div class="face face--front"></div>
                 <div class="face face--back"></div>
                 <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
+                <div
+                    class="face face--left"
+                    style="--left-color: var(--default-front-color)"
+                ></div>
+                <div
+                    class="face face--top"
+                    style="--top-color: var(--default-back-color)"
+                ></div>
                 <div class="face face--bottom"></div>
             </div>
             <div class="cube y-top x-middle z-front">
@@ -139,7 +152,10 @@
                 <div class="face face--bottom"></div>
             </div>
             <div class="cube y-top x-right z-front">
-                <div class="face face--front"></div>
+                <div
+                    class="face face--front"
+                    style="--front-color: var(--default-back-color)"
+                ></div>
                 <div class="face face--back"></div>
                 <div class="face face--right"></div>
                 <div class="face face--left"></div>
@@ -155,7 +171,10 @@
                 <div class="face face--bottom"></div>
             </div>
             <div class="cube y-middle x-middle z-front">
-                <div class="face face--front"></div>
+                <div
+                    class="face face--front"
+                    style="--front-color: var(--default-bottom-color)"
+                ></div>
                 <div class="face face--back"></div>
                 <div class="face face--right"></div>
                 <div class="face face--left"></div>
@@ -163,7 +182,10 @@
                 <div class="face face--bottom"></div>
             </div>
             <div class="cube y-middle x-right z-front">
-                <div class="face face--front"></div>
+                <div
+                    class="face face--front"
+                    style="--left-color: var(--default-front-color)"
+                ></div>
                 <div class="face face--back"></div>
                 <div class="face face--right"></div>
                 <div class="face face--left"></div>
@@ -199,7 +221,10 @@
                 <div class="face face--front"></div>
                 <div class="face face--back"></div>
                 <div class="face face--right"></div>
-                <div class="face face--left"></div>
+                <div
+                    class="face face--left"
+                    style="--left-color: var(--default-front-color)"
+                ></div>
                 <div class="face face--top"></div>
                 <div class="face face--bottom"></div>
             </div>
@@ -257,7 +282,10 @@
                 <div class="face face--right"></div>
                 <div class="face face--left"></div>
                 <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
+                <div
+                    class="face face--bottom"
+                    style="--bottom-color: var(--default-front-color)"
+                ></div>
             </div>
             <div class="cube y-bottom x-right z-middle">
                 <div class="face face--front"></div>
@@ -272,7 +300,10 @@
                 <div class="face face--front"></div>
                 <div class="face face--back"></div>
                 <div class="face face--right"></div>
-                <div class="face face--left"></div>
+                <div
+                    class="face face--left"
+                    style="--left-color: var(--default-front-color)"
+                ></div>
                 <div class="face face--top"></div>
                 <div class="face face--bottom"></div>
             </div>
@@ -281,7 +312,10 @@
                 <div class="face face--back"></div>
                 <div class="face face--right"></div>
                 <div class="face face--left"></div>
-                <div class="face face--top"></div>
+                <div
+                    class="face face--top"
+                    style="--top-color: var(--default-left-color)"
+                ></div>
                 <div class="face face--bottom"></div>
             </div>
             <div class="cube y-top x-right z-back">
@@ -318,7 +352,10 @@
             </div>
             <div class="cube y-bottom x-left z-back">
                 <div class="face face--front"></div>
-                <div class="face face--back"></div>
+                <div
+                    class="face face--back"
+                    style="--back-color: var(--default-front-color)"
+                ></div>
                 <div class="face face--right"></div>
                 <div class="face face--left"></div>
                 <div class="face face--top"></div>
@@ -334,7 +371,10 @@
             </div>
             <div class="cube y-bottom x-right z-back">
                 <div class="face face--front"></div>
-                <div class="face face--back"></div>
+                <div
+                    class="face face--back"
+                    style="--back-color: var(--default-front-color)"
+                ></div>
                 <div class="face face--right"></div>
                 <div class="face face--left"></div>
                 <div class="face face--top"></div>
