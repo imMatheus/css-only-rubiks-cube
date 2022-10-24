@@ -20,7 +20,7 @@ body {
     background-size: 8px;
     background-position: center;
     color: var(--text-color);
-    transition: background-size 800ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: background-size 800ms;
 
     &:has(.container:hover) {
         background-size: 20px;

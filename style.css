@@ -74,15 +74,15 @@
   font-size: 4rem;
   font-weight: 700;
 }
-.header p mark {
-  padding: 0px 8px;
-  border-radius: 8px;
-  background-color: #252422;
-  color: #eb5e28;
+.header p {
+  font-weight: 800;
 }
 .header a {
   text-decoration: none;
-  color: black;
+  background-color: var(--text-color);
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: var(--background-color);
 }
 .header a:hover {
   text-decoration: underline;
@@ -399,7 +399,7 @@ body:has(#color-1:checked) .y-bottom {
 
 body:has(#color-2:checked) {
   --text-color: #0f0;
-  --background-color: #ffa500;
+  --background-color: #00f;
   background-image: url(./L-2.png);
   --default-front-color: #f00;
   --default-back-color: #0f0;
@@ -502,7 +502,7 @@ body {
   background-size: 8px;
   background-position: center;
   color: var(--text-color);
-  transition: background-size 800ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: background-size 800ms;
 }
 body:has(.container:hover) {
   background-size: 20px;

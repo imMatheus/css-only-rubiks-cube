@@ -10,17 +10,15 @@
         font-weight: 700;
     }
     p {
-        mark {
-            padding: 0px 8px;
-            border-radius: 8px;
-            background-color: #252422;
-            color: #eb5e28;
-        }
+        font-weight: 800;
     }
 
     a {
         text-decoration: none;
-        color: black;
+        background-color: var(--text-color);
+        padding: 2px 6px;
+        border-radius: 6px;
+        color: var(--background-color);
 
         &:hover {
             text-decoration: underline;

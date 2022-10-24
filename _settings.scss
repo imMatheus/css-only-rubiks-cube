@@ -23,9 +23,9 @@ $colors: $colors-1, $colors-2, $colors-3, $colors-4;
     width: 100%;
     position: absolute;
     bottom: 0px;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     h3 {
         font-size: 1.3rem;
         font-weight: 800;
@@ -131,7 +131,7 @@ body:has(#color-1:checked) {
 
 body:has(#color-2:checked) {
     --text-color: #{list.nth($colors-2, 2)};
-    --background-color: #{list.nth($colors-2, 4)};
+    --background-color: #{list.nth($colors-2, 3)};
     background-image: url(./L-2.png);
     @include append-colors($colors-2);
 }
