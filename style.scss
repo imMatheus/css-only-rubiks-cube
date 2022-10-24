@@ -23,6 +23,6 @@ body {
     transition: background-size 800ms cubic-bezier(0.19, 1, 0.22, 1);
 
     &:has(.container:hover) {
-        background-size: 20px !important;
+        background-size: 20px;
     }
 }

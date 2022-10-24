@@ -121,6 +121,7 @@ body:has(#opacity-hollow:checked) {
     --face-opacity: 0.3;
 }
 
+body,
 body:has(#color-1:checked) {
     --text-color: #{list.nth($colors-1, 1)};
     --background-color: #{list.nth($colors-1, 4)};

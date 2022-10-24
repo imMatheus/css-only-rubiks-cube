@@ -360,6 +360,7 @@ body:has(#opacity-hollow:checked) {
   --face-opacity: 0.3;
 }
 
+body,
 body:has(#color-1:checked) {
   --text-color: #fdf0d5;
   --background-color: #ff006e;
@@ -371,21 +372,27 @@ body:has(#color-1:checked) {
   --default-top-color: #ffbe0b;
   --default-bottom-color: #fb5607;
 }
+body .z-front,
 body:has(#color-1:checked) .z-front {
   --front-color: #fdf0d5;
 }
+body .z-back,
 body:has(#color-1:checked) .z-back {
   --back-color: #3a86ff;
 }
+body .x-left,
 body:has(#color-1:checked) .x-left {
   --left-color: #8338ec;
 }
+body .x-right,
 body:has(#color-1:checked) .x-right {
   --right-color: #ff006e;
 }
+body .y-top,
 body:has(#color-1:checked) .y-top {
   --top-color: #ffbe0b;
 }
+body .y-bottom,
 body:has(#color-1:checked) .y-bottom {
   --bottom-color: #fb5607;
 }
@@ -498,7 +505,7 @@ body {
   transition: background-size 800ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 body:has(.container:hover) {
-  background-size: 20px !important;
+  background-size: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
