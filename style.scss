@@ -1,28 +1,7 @@
 @use 'sass:math';
+@use 'reset';
 @use 'face';
 @use 'header';
 @use 'simple';
 // @use 'advanced';
 @use 'settings';
-
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto Mono', monospace;
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
-    background-image: url(./L-1.png);
-    background-size: 8px;
-    background-position: center;
-    color: var(--text-color);
-    transition: background-size 800ms;
-
-    &:has(.container:hover) {
-        background-size: 20px;
-    }
-}

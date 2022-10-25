@@ -1,3 +1,24 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-image: url(./L-1.png);
+  background-size: 8px;
+  background-position: center;
+  color: var(--text-color);
+  transition: background-size 800ms;
+}
+body:has(.container:hover) {
+  background-size: 20px;
+}
+
 .container {
   width: 240px;
   height: 240px;
@@ -485,27 +506,6 @@ body:has(#color-4:checked) .y-top {
 }
 body:has(#color-4:checked) .y-bottom {
   --bottom-color: #add2c2;
-}
-
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Roboto Mono", monospace;
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
-  background-image: url(./L-1.png);
-  background-size: 8px;
-  background-position: center;
-  color: var(--text-color);
-  transition: background-size 800ms;
-}
-body:has(.container:hover) {
-  background-size: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
