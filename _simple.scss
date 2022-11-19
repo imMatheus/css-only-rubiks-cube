@@ -53,97 +53,130 @@
 $animation-time: 1000ms;
 
 .y-bottom {
-    animation: r-bottom $animation-time * 2 forwards;
+	animation: r-bottom $animation-time * 20 forwards infinite;
 
-    &.x-left {
-        transform-origin: ($cube-size + math.div($cube-size, 2)) 0px
-            (-1 * $cube-size);
-    }
-    &.x-middle {
-        transform-origin: math.div($cube-size, 2) 0px (-1 * $cube-size);
-    }
-    &.x-right {
-        transform-origin: math.div((-1 * $cube-size), 2) 0px (-1 * $cube-size);
-    }
+	&.x-left {
+		transform-origin: ($cube-size + math.div($cube-size, 2)) 0px (-1 * $cube-size);
+	}
+	&.x-middle {
+		transform-origin: math.div($cube-size, 2) 0px (-1 * $cube-size);
+	}
+	&.x-right {
+		transform-origin: math.div((-1 * $cube-size), 2) 0px (-1 * $cube-size);
+	}
 }
 
 @keyframes r-bottom {
-    0% {
-        rotate: y 0deg;
-    }
-    50% {
-        rotate: y 90deg;
-    }
-    100% {
-        rotate: y 180deg;
-    }
+	0% {
+		rotate: y 0deg;
+	}
+	5% {
+		rotate: y 90deg;
+	}
+	10% {
+		rotate: y 180deg;
+	}
+	15% {
+		rotate: y 270deg;
+	}
+
+	85% {
+		rotate: y 270deg;
+	}
+	90% {
+		rotate: y 180deg;
+	}
+	95% {
+		rotate: y 90deg;
+	}
+	100% {
+		rotate: y 0deg;
+	}
 }
 
 .y-top {
-    animation: r-top $animation-time * 3 forwards;
+	animation: r-top $animation-time * 20 forwards infinite;
 
-    animation-delay: $animation-time * 2;
-
-    &.x-left {
-        transform-origin: ($cube-size + math.div($cube-size, 2)) 0px
-            (-1 * $cube-size);
-    }
-    &.x-middle {
-        transform-origin: (math.div($cube-size, 2)) 0px (-1 * $cube-size);
-    }
-    &.x-right {
-        transform-origin: (math.div(-1 * $cube-size, 2)) 0px (-1 * $cube-size);
-    }
+	&.x-left {
+		transform-origin: ($cube-size + math.div($cube-size, 2)) 0px (-1 * $cube-size);
+	}
+	&.x-middle {
+		transform-origin: (math.div($cube-size, 2)) 0px (-1 * $cube-size);
+	}
+	&.x-right {
+		transform-origin: (math.div(-1 * $cube-size, 2)) 0px (-1 * $cube-size);
+	}
 }
 
 @keyframes r-top {
-    0% {
-        rotate: y 0deg;
-    }
-    33% {
-        rotate: y -90deg;
-    }
-    66% {
-        rotate: y -180deg;
-    }
-    100% {
-        rotate: y -270deg;
-    }
+	0%,
+	15% {
+		rotate: y 0deg;
+	}
+	20% {
+		rotate: y -90deg;
+	}
+	25% {
+		rotate: y -180deg;
+	}
+	30% {
+		rotate: y -270deg;
+	}
+
+	70% {
+		rotate: y -270deg;
+	}
+	75% {
+		rotate: y -180deg;
+	}
+	80% {
+		rotate: y -90deg;
+	}
+	85% {
+		rotate: y 0deg;
+	}
 }
 
 .y-middle {
-    animation: r-middle $animation-time * 5 forwards;
-    animation-delay: $animation-time * 5;
+	animation: r-middle $animation-time * 20 forwards infinite;
 
-    &.x-left {
-        transform-origin: ($cube-size + math.div($cube-size, 2)) 0px
-            (-1 * $cube-size);
-    }
-    &.x-middle {
-        transform-origin: (math.div($cube-size, 2)) 0px (-1 * $cube-size);
-    }
-    &.x-right {
-        transform-origin: (math.div(-1 * $cube-size, 2)) 0px (-1 * $cube-size);
-    }
+	&.x-left {
+		transform-origin: ($cube-size + math.div($cube-size, 2)) 0px (-1 * $cube-size);
+	}
+	&.x-middle {
+		transform-origin: (math.div($cube-size, 2)) 0px (-1 * $cube-size);
+	}
+	&.x-right {
+		transform-origin: (math.div(-1 * $cube-size, 2)) 0px (-1 * $cube-size);
+	}
 }
-
 @keyframes r-middle {
-    0% {
-        rotate: y 0deg;
-    }
-    20% {
-        rotate: y 90deg;
-    }
-    40% {
-        rotate: y 180deg;
-    }
-    60% {
-        rotate: y 270deg;
-    }
-    80% {
-        rotate: y 360deg;
-    }
-    100% {
-        rotate: y 360deg;
-    }
+	0%,
+	30% {
+		rotate: y 0deg;
+	}
+	35% {
+		rotate: y 90deg;
+	}
+	40% {
+		rotate: y 180deg;
+	}
+	45% {
+		rotate: y 270deg;
+	}
+	50% {
+		rotate: y 360deg;
+	}
+	55% {
+		rotate: y 270deg;
+	}
+	60% {
+		rotate: y 180deg;
+	}
+	65% {
+		rotate: y 90deg;
+	}
+	70% {
+		rotate: y 0deg;
+	}
 }
