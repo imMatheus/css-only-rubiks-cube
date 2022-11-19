@@ -140,7 +140,7 @@ body:has(.container:hover) {
 }
 
 .y-bottom {
-  animation: r-bottom 2000ms forwards;
+  animation: r-bottom 20000ms forwards infinite;
 }
 .y-bottom.x-left {
   transform-origin: 120px 0px -80px;
@@ -156,16 +156,30 @@ body:has(.container:hover) {
   0% {
     rotate: y 0deg;
   }
-  50% {
+  5% {
+    rotate: y 90deg;
+  }
+  10% {
+    rotate: y 180deg;
+  }
+  15% {
+    rotate: y 270deg;
+  }
+  85% {
+    rotate: y 270deg;
+  }
+  90% {
+    rotate: y 180deg;
+  }
+  95% {
     rotate: y 90deg;
   }
   100% {
-    rotate: y 180deg;
+    rotate: y 0deg;
   }
 }
 .y-top {
-  animation: r-top 3000ms forwards;
-  animation-delay: 2000ms;
+  animation: r-top 20000ms forwards infinite;
 }
 .y-top.x-left {
   transform-origin: 120px 0px -80px;
@@ -178,22 +192,33 @@ body:has(.container:hover) {
 }
 
 @keyframes r-top {
-  0% {
+  0%, 15% {
     rotate: y 0deg;
   }
-  33% {
+  20% {
     rotate: y -90deg;
   }
-  66% {
+  25% {
     rotate: y -180deg;
   }
-  100% {
+  30% {
     rotate: y -270deg;
+  }
+  70% {
+    rotate: y -270deg;
+  }
+  75% {
+    rotate: y -180deg;
+  }
+  80% {
+    rotate: y -90deg;
+  }
+  85% {
+    rotate: y 0deg;
   }
 }
 .y-middle {
-  animation: r-middle 5000ms forwards;
-  animation-delay: 5000ms;
+  animation: r-middle 20000ms forwards infinite;
 }
 .y-middle.x-left {
   transform-origin: 120px 0px -80px;
@@ -206,23 +231,32 @@ body:has(.container:hover) {
 }
 
 @keyframes r-middle {
-  0% {
+  0%, 30% {
     rotate: y 0deg;
   }
-  20% {
+  35% {
     rotate: y 90deg;
   }
   40% {
     rotate: y 180deg;
   }
-  60% {
+  45% {
     rotate: y 270deg;
   }
-  80% {
+  50% {
     rotate: y 360deg;
   }
-  100% {
-    rotate: y 360deg;
+  55% {
+    rotate: y 270deg;
+  }
+  60% {
+    rotate: y 180deg;
+  }
+  65% {
+    rotate: y 90deg;
+  }
+  70% {
+    rotate: y 0deg;
   }
 }
 .settings {
