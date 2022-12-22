@@ -62,27 +62,27 @@ body:has(.container:hover) {
   transition: all 700ms;
 }
 .face--front {
-  background: var(--front-color, rgba(0, 0, 0, 0.8));
+  background: var(--front-color, #000000cc);
   transform: rotateY(0deg) translateZ(40px);
 }
 .face--back {
-  background: var(--back-color, rgba(0, 0, 0, 0.8));
+  background: var(--back-color, #000000cc);
   transform: rotateY(180deg) translateZ(40px);
 }
 .face--left {
-  background: var(--left-color, rgba(0, 0, 0, 0.8));
+  background: var(--left-color, #000000cc);
   transform: rotateY(-90deg) translateZ(40px);
 }
 .face--right {
-  background: var(--right-color, rgba(0, 0, 0, 0.8));
+  background: var(--right-color, #000000cc);
   transform: rotateY(90deg) translateZ(40px);
 }
 .face--top {
-  background: var(--top-color, rgba(0, 0, 0, 0.8));
+  background: var(--top-color, #000000cc);
   transform: rotateX(90deg) translateZ(40px);
 }
 .face--bottom {
-  background: var(--bottom-color, rgba(0, 0, 0, 0.8));
+  background: var(--bottom-color, #000000cc);
   transform: rotateX(-90deg) translateZ(40px);
 }
 
@@ -110,33 +110,33 @@ body:has(.container:hover) {
 }
 
 .y-top {
-  top: var(--top, 0px);
+  top: 0px;
 }
 .y-middle {
-  top: var(--top, 80px);
+  top: 80px;
 }
 .y-bottom {
-  bottom: var(--bottom, 0px);
+  bottom: 0px;
 }
 
 .x-left {
-  left: var(--left, 0px);
+  left: 0px;
 }
 .x-middle {
-  left: var(--left, 80px);
+  left: 80px;
 }
 .x-right {
-  right: var(--right, 0px);
+  right: 0px;
 }
 
 .z-front {
-  transform: translate3d(var(--translateX, 0px), var(--translateY, 0px), calc(0p + var(--translateZ, 0px)));
+  transform: translate3d(0px, 0px, 0px);
 }
 .z-middle {
-  transform: translate3d(var(--translateX, 0px), var(--translateY, 0px), calc(-80px + var(--translateZ, 0px)));
+  transform: translate3d(0px, 0px, -80px);
 }
 .z-back {
-  transform: translate3d(var(--translateX, 0px), var(--translateY, 0px), calc(-160px + var(--translateZ, 0px)));
+  transform: translate3d(0px, 0px, -160px);
 }
 
 .y-bottom {
