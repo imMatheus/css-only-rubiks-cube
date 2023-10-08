@@ -1,385 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="icon" type="image/x-icon" href="/cube.png" />
-        <link rel="stylesheet" href="./style.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap"
-            rel="stylesheet"
-        />
-    </head>
-    <body>
-        <div class="header">
-            <h1>CSS only Rubik's Cube</h1>
-            <p>
-                Pssst, try hovering over the cube :). Want to see the code?
-                <a
-                    href="https://github.com/imMatheus/rubiks-cube"
-                    target="_blank"
-                    >Click me</a
-                >
-            </p>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="/cube.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <img
+        src="L-1.png"
+        style="display: hidden; width: 0px; height: 0px; user-select: none"
+      />
+      <img
+        src="L-2.png"
+        style="display: hidden; width: 0px; height: 0px; user-select: none"
+      />
+      <img
+        src="L-3.png"
+        style="display: hidden; width: 0px; height: 0px; user-select: none"
+      />
+      <img
+        src="L-4.png"
+        style="display: hidden; width: 0px; height: 0px; user-select: none"
+      />
+      <h1>CSS only Rubik's Cube</h1>
+      <p>
+        Pssst, try hovering over the cube :). Want to see the code?
+        <a href="https://github.com/imMatheus/rubiks-cube" target="_blank"
+          >Click me</a
+        >
+      </p>
+    </div>
 
-        <div class="settings">
-            <div>
-                <h3>Color palette</h3>
+    <div class="settings">
+      <div>
+        <h3>Color palette</h3>
 
-                <form>
-                    <div class="labels-container">
-                        <label for="color-1" class="color-display">
-                            <input
-                                type="radio"
-                                name="color-palette"
-                                id="color-1"
-                                checked
-                            />
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                        </label>
-                        <label for="color-2" class="color-display">
-                            <input
-                                type="radio"
-                                name="color-palette"
-                                id="color-2"
-                            />
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                        </label>
-                        <label for="color-3" class="color-display">
-                            <input
-                                type="radio"
-                                name="color-palette"
-                                id="color-3"
-                            />
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                        </label>
-                        <label for="color-4" class="color-display">
-                            <input
-                                type="radio"
-                                name="color-palette"
-                                id="color-4"
-                            />
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                            <div class="color-span"></div>
-                        </label>
-                    </div>
-                </form>
-            </div>
+        <form>
+          <div class="labels-container">
+            <label for="color-1" class="color-display">
+              <input type="radio" name="color-palette" id="color-1" checked />
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+            </label>
+            <label for="color-2" class="color-display">
+              <input type="radio" name="color-palette" id="color-2" />
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+            </label>
+            <label for="color-3" class="color-display">
+              <input type="radio" name="color-palette" id="color-3" />
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+            </label>
+            <label for="color-4" class="color-display">
+              <input type="radio" name="color-palette" id="color-4" />
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+              <div class="color-span"></div>
+            </label>
+          </div>
+        </form>
+      </div>
 
-            <div>
-                <h3>Cube opacity</h3>
-                <form>
-                    <div class="labels-container">
-                        <label for="opacity-solid" class="opacity-display">
-                            <input
-                                type="radio"
-                                name="opacity-picker"
-                                id="opacity-solid"
-                                checked
-                            />
-                            Solid
-                        </label>
+      <div>
+        <h3>Cube opacity</h3>
+        <form>
+          <div class="labels-container">
+            <label for="opacity-solid" class="opacity-display">
+              <input
+                type="radio"
+                name="opacity-picker"
+                id="opacity-solid"
+                checked
+              />
+              Solid
+            </label>
 
-                        <label
-                            for="opacity-see-through"
-                            class="opacity-display"
-                        >
-                            <input
-                                type="radio"
-                                name="opacity-picker"
-                                id="opacity-see-through"
-                            />
-                            See through
-                        </label>
-                        <label for="opacity-hollow" class="opacity-display">
-                            <input
-                                type="radio"
-                                name="opacity-picker"
-                                id="opacity-hollow"
-                            />
-                            Hollow
-                        </label>
-                    </div>
-                </form>
-            </div>
-        </div>
+            <label for="opacity-see-through" class="opacity-display">
+              <input
+                type="radio"
+                name="opacity-picker"
+                id="opacity-see-through"
+              />
+              See through
+            </label>
+            <label for="opacity-hollow" class="opacity-display">
+              <input type="radio" name="opacity-picker" id="opacity-hollow" />
+              Hollow
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
 
-        <div class="container" id="c">
-            <div class="cube y-top x-left z-front">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div
-                    class="face face--left"
-                    style="--left-color: var(--default-front-color)"
-                ></div>
-                <div
-                    class="face face--top"
-                    style="--top-color: var(--default-back-color)"
-                ></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-top x-middle z-front">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-top x-right z-front">
-                <div
-                    class="face face--front"
-                    style="--front-color: var(--default-back-color)"
-                ></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-middle x-left z-front">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-middle x-middle z-front">
-                <div
-                    class="face face--front"
-                    style="--front-color: var(--default-bottom-color)"
-                ></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-middle x-right z-front">
-                <div
-                    class="face face--front"
-                    style="--left-color: var(--default-front-color)"
-                ></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-bottom x-left z-front">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-bottom x-middle z-front">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-bottom x-right z-front">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
+    <div class="container" id="c">
+      <div class="cube y-top x-left z-front">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div
+          class="face face--left"
+          style="--left-color: var(--default-front-color)"
+        ></div>
+        <div
+          class="face face--top"
+          style="--top-color: var(--default-back-color)"
+        ></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-top x-middle z-front">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-top x-right z-front">
+        <div
+          class="face face--front"
+          style="--front-color: var(--default-back-color)"
+        ></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-middle x-left z-front">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-middle x-middle z-front">
+        <div
+          class="face face--front"
+          style="--front-color: var(--default-bottom-color)"
+        ></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-middle x-right z-front">
+        <div
+          class="face face--front"
+          style="--left-color: var(--default-front-color)"
+        ></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-bottom x-left z-front">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-bottom x-middle z-front">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-bottom x-right z-front">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
 
-            <div class="cube y-top x-left z-middle">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div
-                    class="face face--left"
-                    style="--left-color: var(--default-front-color)"
-                ></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-top x-middle z-middle">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-top x-right z-middle">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-middle x-left z-middle">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-middle x-middle z-middle">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-middle x-right z-middle">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-bottom x-left z-middle">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-bottom x-middle z-middle">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div
-                    class="face face--bottom"
-                    style="--bottom-color: var(--default-front-color)"
-                ></div>
-            </div>
-            <div class="cube y-bottom x-right z-middle">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
+      <div class="cube y-top x-left z-middle">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div
+          class="face face--left"
+          style="--left-color: var(--default-front-color)"
+        ></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-top x-middle z-middle">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-top x-right z-middle">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-middle x-left z-middle">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-middle x-middle z-middle">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-middle x-right z-middle">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-bottom x-left z-middle">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-bottom x-middle z-middle">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div
+          class="face face--bottom"
+          style="--bottom-color: var(--default-front-color)"
+        ></div>
+      </div>
+      <div class="cube y-bottom x-right z-middle">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
 
-            <div class="cube y-top x-left z-back">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div
-                    class="face face--left"
-                    style="--left-color: var(--default-front-color)"
-                ></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-top x-middle z-back">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div
-                    class="face face--top"
-                    style="--top-color: var(--default-left-color)"
-                ></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-top x-right z-back">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-middle x-left z-back">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-middle x-middle z-back">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-middle x-right z-back">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-bottom x-left z-back">
-                <div class="face face--front"></div>
-                <div
-                    class="face face--back"
-                    style="--back-color: var(--default-front-color)"
-                ></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-bottom x-middle z-back">
-                <div class="face face--front"></div>
-                <div class="face face--back"></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-            <div class="cube y-bottom x-right z-back">
-                <div class="face face--front"></div>
-                <div
-                    class="face face--back"
-                    style="--back-color: var(--default-front-color)"
-                ></div>
-                <div class="face face--right"></div>
-                <div class="face face--left"></div>
-                <div class="face face--top"></div>
-                <div class="face face--bottom"></div>
-            </div>
-        </div>
-    </body>
+      <div class="cube y-top x-left z-back">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div
+          class="face face--left"
+          style="--left-color: var(--default-front-color)"
+        ></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-top x-middle z-back">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div
+          class="face face--top"
+          style="--top-color: var(--default-left-color)"
+        ></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-top x-right z-back">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-middle x-left z-back">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-middle x-middle z-back">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-middle x-right z-back">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-bottom x-left z-back">
+        <div class="face face--front"></div>
+        <div
+          class="face face--back"
+          style="--back-color: var(--default-front-color)"
+        ></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-bottom x-middle z-back">
+        <div class="face face--front"></div>
+        <div class="face face--back"></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+      <div class="cube y-bottom x-right z-back">
+        <div class="face face--front"></div>
+        <div
+          class="face face--back"
+          style="--back-color: var(--default-front-color)"
+        ></div>
+        <div class="face face--right"></div>
+        <div class="face face--left"></div>
+        <div class="face face--top"></div>
+        <div class="face face--bottom"></div>
+      </div>
+    </div>
+  </body>
 </html>
