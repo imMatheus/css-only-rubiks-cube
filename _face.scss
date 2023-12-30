@@ -1,46 +1,46 @@
-@use 'cube' as *;
-@use 'sass:math';
+@use "cube" as *;
+@use "sass:math";
 
 .cube {
-    width: $cube_size;
-    height: $cube_size;
-    position: absolute;
-    transform-style: preserve-3d;
+  width: $cube_size;
+  height: $cube_size;
+  position: absolute;
+  transform-style: preserve-3d;
 }
 
 .face {
-    position: absolute;
-    width: $cube_size;
-    height: $cube_size;
-    opacity: var(--face-opacity, 1);
-    border-radius: 8px;
-    border: solid black 1px;
-    transition: all 700ms;
+  position: absolute;
+  width: $cube_size;
+  height: $cube_size;
+  opacity: var(--face-opacity, 1);
+  border-radius: 8px;
+  border: solid black 1px;
+  transition: all 700ms;
 
-    $rotate: 90deg;
-    $default_color: #000000cc;
-    &--front {
-        background: var(--front-color, $default_color);
-        transform: rotateY(0deg) translateZ(math.div($cube_size, 2));
-    }
-    &--back {
-        background: var(--back-color, $default_color);
-        transform: rotateY($rotate * 2) translateZ(math.div($cube_size, 2));
-    }
-    &--left {
-        background: var(--left-color, $default_color);
-        transform: rotateY($rotate * -1) translateZ(math.div($cube_size, 2));
-    }
-    &--right {
-        background: var(--right-color, $default_color);
-        transform: rotateY($rotate) translateZ(math.div($cube_size, 2));
-    }
-    &--top {
-        background: var(--top-color, $default_color);
-        transform: rotateX($rotate) translateZ(math.div($cube_size, 2));
-    }
-    &--bottom {
-        background: var(--bottom-color, $default_color);
-        transform: rotateX($rotate * -1) translateZ(math.div($cube_size, 2));
-    }
+  $rotate: 90deg;
+  $default_color: #000000cc;
+  &--front {
+    background: var(--front-color, $default_color);
+    transform: rotateY(0deg) translateZ(math.div($cube_size, 2));
+  }
+  &--back {
+    background: var(--back-color, $default_color);
+    transform: rotateY($rotate * 2) translateZ(math.div($cube_size, 2));
+  }
+  &--left {
+    background: var(--left-color, $default_color);
+    transform: rotateY($rotate * -1) translateZ(math.div($cube_size, 2));
+  }
+  &--right {
+    background: var(--right-color, $default_color);
+    transform: rotateY($rotate) translateZ(math.div($cube_size, 2));
+  }
+  &--top {
+    background: var(--top-color, $default_color);
+    transform: rotateX($rotate) translateZ(math.div($cube_size, 2));
+  }
+  &--bottom {
+    background: var(--bottom-color, $default_color);
+    transform: rotateX($rotate * -1) translateZ(math.div($cube_size, 2));
+  }
 }
