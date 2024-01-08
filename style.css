@@ -40,9 +40,9 @@ body:has(input#toggle-switch-checkbox:checked) .container {
   --bottom-left: 0deg;
   --bottom-right: 0deg;
 }
-.main-wrapper .y-top,
-.main-wrapper .y-middle,
-.main-wrapper .y-bottom {
+.main-wrapper .y-top:not(.cube-changer),
+.main-wrapper .y-middle:not(.cube-changer),
+.main-wrapper .y-bottom:not(.cube-changer) {
   animation: none !important;
 }
 .main-wrapper:has(input[type=checkbox][data-side=top-left]:checked) {

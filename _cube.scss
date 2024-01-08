@@ -19,9 +19,9 @@ body:has(input#toggle-switch-checkbox:checked) .container {
 
 .main-wrapper {
   position: relative;
-  .y-top,
-  .y-middle,
-  .y-bottom {
+  .y-top:not(.cube-changer),
+  .y-middle:not(.cube-changer),
+  .y-bottom:not(.cube-changer) {
     animation: none !important;
     // animation-play-state: paused;
   }
