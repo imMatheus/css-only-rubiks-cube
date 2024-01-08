@@ -37,33 +37,39 @@ body:has(.container:hover) {
 .main-wrapper .y-bottom {
   animation: none !important;
 }
-.main-wrapper:has(input[type=checkbox][data-side=left]:checked) {
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked) {
   --left: 90deg;
 }
 
-.main-wrapper:has(input[type=checkbox][data-side=right]:checked) {
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked) {
   --right: -90deg;
 }
 
-.main-wrapper:has(input[type=checkbox][data-side=left]:checked ~ input[type=checkbox][data-side=left]:checked) {
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
   --left: 180deg;
 }
 
-.main-wrapper:has(input[type=checkbox][data-side=right]:checked ~ input[type=checkbox][data-side=right]:checked) {
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
   --right: -180deg;
 }
 
-.main-wrapper:has(input[type=checkbox][data-side=left]:checked ~ input[type=checkbox][data-side=left]:checked ~ input[type=checkbox][data-side=left]:checked) {
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
   --left: 270deg;
 }
 
-.main-wrapper:has(input[type=checkbox][data-side=right]:checked ~ input[type=checkbox][data-side=right]:checked ~ input[type=checkbox][data-side=right]:checked) {
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
   --right: -270deg;
 }
 
 .main-wrapper .y-top:not(.cube-changer) {
   transition: rotate 1000ms;
   rotate: y calc(var(--left) + var(--right)) !important;
+}
+.main-wrapper .cube-changer-input {
+  display: none;
+}
+.main-wrapper .cube-changer-input:checked + .cube-changer {
+  display: none;
 }
 .main-wrapper .cube-changer {
   z-index: 10000;

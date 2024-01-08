@@ -31,9 +31,9 @@ $cube_size: 80px;
 
     @for $j from 1 through $i {
       $leftCheckedSelectors: #{$leftCheckedSelectors} +
-        'input[type="checkbox"][data-side="left"]:checked';
+        'input[type="checkbox"][data-side="top-left"]:checked';
       $rightCheckedSelectors: #{$rightCheckedSelectors} +
-        'input[type="checkbox"][data-side="right"]:checked';
+        'input[type="checkbox"][data-side="top-right"]:checked';
       @if $j != $i {
         $leftCheckedSelectors: #{$leftCheckedSelectors} + " ~ ";
         $rightCheckedSelectors: #{$rightCheckedSelectors} + " ~ ";
@@ -56,10 +56,18 @@ $cube_size: 80px;
     rotate: y calc(var(--left) + var(--right)) !important;
   }
 
+  .cube-changer-input {
+    display: none;
+
+    &:checked + .cube-changer {
+      display: none;
+    }
+  }
   .cube-changer {
     // top: 100px;
     // left: 0px;
     z-index: 10000;
+
     // transform: rotateY(35deg) rotateX(-35deg) rotateZ(0deg);
     animation: none !important;
     $rotate: 90deg;
