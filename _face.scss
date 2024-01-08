@@ -7,7 +7,7 @@
   position: absolute;
   transform-style: preserve-3d;
   &:not(.cube-changer) {
-    opacity: 0.8;
+    pointer-events: none;
   }
 }
 

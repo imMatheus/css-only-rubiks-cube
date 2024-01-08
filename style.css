@@ -27,10 +27,18 @@ body:has(.container:hover) {
   transform-style: preserve-3d;
   transform: rotateY(35deg) rotateX(-35deg) rotateZ(0deg);
 }
+body:has(input#toggle-switch-checkbox:checked) .container {
+  animation: rotate-container 6000ms infinite ease-in-out;
+}
+
 .main-wrapper {
   position: relative;
-  --left: 0deg;
-  --right: 0deg;
+  --top-left: 0deg;
+  --top-right: 0deg;
+  --middle-left: 0deg;
+  --middle-right: 0deg;
+  --bottom-left: 0deg;
+  --bottom-right: 0deg;
 }
 .main-wrapper .y-top,
 .main-wrapper .y-middle,
@@ -38,32 +46,496 @@ body:has(.container:hover) {
   animation: none !important;
 }
 .main-wrapper:has(input[type=checkbox][data-side=top-left]:checked) {
-  --left: 90deg;
+  --top-left: 90deg;
 }
 
 .main-wrapper:has(input[type=checkbox][data-side=top-right]:checked) {
-  --right: -90deg;
+  --top-right: -90deg;
 }
 
 .main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
-  --left: 180deg;
+  --top-left: 180deg;
 }
 
 .main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
-  --right: -180deg;
+  --top-right: -180deg;
 }
 
 .main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
-  --left: 270deg;
+  --top-left: 270deg;
 }
 
 .main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
-  --right: -270deg;
+  --top-right: -270deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 360deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -360deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 450deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -450deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 540deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -540deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 630deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -630deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 720deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -720deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 810deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -810deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 900deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -900deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 990deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -990deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 1080deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -1080deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 1170deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -1170deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 1260deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -1260deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 1350deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -1350deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 1440deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -1440deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 1530deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -1530deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 1620deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -1620deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 1710deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -1710deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked ~ input[type=checkbox][data-side=top-left]:checked) {
+  --top-left: 1800deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked ~ input[type=checkbox][data-side=top-right]:checked) {
+  --top-right: -1800deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 90deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -90deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 180deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -180deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 270deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -270deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 360deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -360deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 450deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -450deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 540deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -540deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 630deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -630deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 720deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -720deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 810deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -810deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 900deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -900deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 990deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -990deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 1080deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -1080deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 1170deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -1170deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 1260deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -1260deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 1350deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -1350deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 1440deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -1440deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 1530deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -1530deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 1620deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -1620deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 1710deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -1710deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked ~ input[type=checkbox][data-side=middle-left]:checked) {
+  --middle-left: 1800deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked ~ input[type=checkbox][data-side=middle-right]:checked) {
+  --middle-right: -1800deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 90deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -90deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 180deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -180deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 270deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -270deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 360deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -360deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 450deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -450deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 540deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -540deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 630deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -630deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 720deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -720deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 810deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -810deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 900deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -900deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 990deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -990deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 1080deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -1080deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 1170deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -1170deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 1260deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -1260deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 1350deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -1350deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 1440deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -1440deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 1530deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -1530deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 1620deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -1620deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 1710deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -1710deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked ~ input[type=checkbox][data-side=bottom-left]:checked) {
+  --bottom-left: 1800deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked ~ input[type=checkbox][data-side=bottom-right]:checked) {
+  --bottom-right: -1800deg;
 }
 
 .main-wrapper .y-top:not(.cube-changer) {
   transition: rotate 1000ms;
-  rotate: y calc(var(--left) + var(--right)) !important;
+  rotate: y calc(var(--top-left) + var(--top-right)) !important;
+}
+.main-wrapper .y-middle:not(.cube-changer) {
+  transition: rotate 1000ms;
+  rotate: y calc(var(--middle-left) + var(--middle-right)) !important;
+}
+.main-wrapper .y-bottom:not(.cube-changer) {
+  transition: rotate 1000ms;
+  rotate: y calc(var(--bottom-left) + var(--bottom-right)) !important;
 }
 .main-wrapper .cube-changer-input {
   display: none;
@@ -76,34 +548,65 @@ body:has(.container:hover) {
   animation: none !important;
 }
 .main-wrapper .cube-changer .face {
-  background: red !important;
+  opacity: 0;
 }
 .main-wrapper .cube-changer .face--back {
-  transform: rotateY(180deg) translateZ(160px);
-}
-.main-wrapper .cube-changer .face--left {
-  width: 160px;
-  transform: rotateY(-90deg) translateZ(80px) translateX(-80px);
-}
-.main-wrapper .cube-changer .face--right {
-  width: 160px;
-  transform: rotateY(90deg) translateZ(0) translateX(80px);
-}
-.main-wrapper .cube-changer .face--bottom {
-  height: 160px;
-  transform: rotateX(-90deg) translateZ(0) translateY(80px);
-}
-.main-wrapper .cube-changer .face--top {
-  height: 160px;
-  transform: rotateX(90deg) translateZ(80px) translateY(-80px);
+  transform: rotateY(180deg) translateZ(200px);
 }
 .main-wrapper .cube-changer .face--front {
-  transform: rotateY(-180deg) translateZ(0px);
+  transform: rotateY(-180deg) translateZ(-40px);
 }
-.main-wrapper .toggle-bar p {
-  padding: 10px;
-  border-radius: 10px;
-  background-color: teal;
+.main-wrapper .cube-changer .face--left {
+  width: 240px;
+  transform: rotateY(-90deg) translateZ(120px) translateX(-80px);
+}
+.main-wrapper .cube-changer .face--right {
+  width: 240px;
+  transform: rotateY(90deg) translateZ(-40px) translateX(80px);
+}
+.main-wrapper .cube-changer .face--bottom {
+  height: 240px;
+  transform: rotateX(-90deg) translateZ(-40px) translateY(80px);
+}
+.main-wrapper .cube-changer .face--top {
+  height: 240px;
+  transform: rotateX(90deg) translateZ(120px) translateY(-80px);
+}
+.main-wrapper .toggle-switch-container {
+  margin-top: 14px;
+  padding: 12px;
+  background-color: var(--default-bottom-color);
+  border: solid 4px;
+  border-radius: 9999px;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  display: flex;
+}
+.main-wrapper .toggle-switch-container input {
+  display: none;
+}
+.main-wrapper .toggle-switch-container:has(input:checked) .switch-ball {
+  margin-left: 32px;
+}
+.main-wrapper .toggle-switch-container p {
+  font-size: 20px;
+  font-weight: 700;
+}
+.main-wrapper .toggle-switch-container .switch {
+  cursor: pointer;
+  width: 60px;
+  border: solid var(--text-color) 2px;
+  background-color: var(--default-bottom-color);
+  height: 28px;
+  border-radius: 9999px;
+}
+.main-wrapper .toggle-switch-container .switch .switch-ball {
+  border-radius: 9999px;
+  background-color: var(--text-color);
+  height: 24px;
+  width: 24px;
+  transition: all 400ms;
 }
 
 @keyframes rotate-container {
@@ -127,7 +630,7 @@ body:has(.container:hover) {
   transform-style: preserve-3d;
 }
 .cube:not(.cube-changer) {
-  opacity: 0.8;
+  pointer-events: none;
 }
 
 .face {
