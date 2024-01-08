@@ -546,6 +546,7 @@ body:has(input#toggle-switch-checkbox:checked) .container {
 .main-wrapper .cube-changer {
   z-index: 10000;
   animation: none !important;
+  cursor: pointer;
 }
 .main-wrapper .cube-changer .face {
   opacity: 0;

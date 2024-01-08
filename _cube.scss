@@ -32,79 +32,32 @@ body:has(input#toggle-switch-checkbox:checked) .container {
   --bottom-left: 0deg;
   --bottom-right: 0deg;
 
-  @for $i from 1 through 20 {
-    $leftCheckedSelectors: "";
-    $rightCheckedSelectors: "";
+  $checkboxSides: ("top", "middle", "bottom");
 
-    @for $j from 1 through $i {
-      $leftCheckedSelectors: #{$leftCheckedSelectors} +
-        'input[type="checkbox"][data-side="top-left"]:checked';
-      $rightCheckedSelectors: #{$rightCheckedSelectors} +
-        'input[type="checkbox"][data-side="top-right"]:checked';
-      @if $j != $i {
-        $leftCheckedSelectors: #{$leftCheckedSelectors} + " ~ ";
-        $rightCheckedSelectors: #{$rightCheckedSelectors} + " ~ ";
-      }
-    }
+  @each $side in $checkboxSides {
+    @for $i from 1 through 20 {
+      $leftCheckedSelectors: "";
+      $rightCheckedSelectors: "";
 
-    @at-root {
-      &:has(#{$leftCheckedSelectors}) {
-        --top-left: #{90deg * $i};
+      @for $j from 1 through $i {
+        $leftCheckedSelectors: #{$leftCheckedSelectors} +
+          'input[type="checkbox"][data-side="#{$side}-left"]:checked';
+        $rightCheckedSelectors: #{$rightCheckedSelectors} +
+          'input[type="checkbox"][data-side="#{$side}-right"]:checked';
+        @if $j != $i {
+          $leftCheckedSelectors: #{$leftCheckedSelectors} + " ~ ";
+          $rightCheckedSelectors: #{$rightCheckedSelectors} + " ~ ";
+        }
       }
 
-      &:has(#{$rightCheckedSelectors}) {
-        --top-right: #{-90deg * $i};
-      }
-    }
-  }
+      @at-root {
+        &:has(#{$leftCheckedSelectors}) {
+          --#{$side}-left: #{90deg * $i};
+        }
 
-  @for $i from 1 through 20 {
-    $leftCheckedSelectors: "";
-    $rightCheckedSelectors: "";
-
-    @for $j from 1 through $i {
-      $leftCheckedSelectors: #{$leftCheckedSelectors} +
-        'input[type="checkbox"][data-side="middle-left"]:checked';
-      $rightCheckedSelectors: #{$rightCheckedSelectors} +
-        'input[type="checkbox"][data-side="middle-right"]:checked';
-      @if $j != $i {
-        $leftCheckedSelectors: #{$leftCheckedSelectors} + " ~ ";
-        $rightCheckedSelectors: #{$rightCheckedSelectors} + " ~ ";
-      }
-    }
-
-    @at-root {
-      &:has(#{$leftCheckedSelectors}) {
-        --middle-left: #{90deg * $i};
-      }
-
-      &:has(#{$rightCheckedSelectors}) {
-        --middle-right: #{-90deg * $i};
-      }
-    }
-  }
-  @for $i from 1 through 20 {
-    $leftCheckedSelectors: "";
-    $rightCheckedSelectors: "";
-
-    @for $j from 1 through $i {
-      $leftCheckedSelectors: #{$leftCheckedSelectors} +
-        'input[type="checkbox"][data-side="bottom-left"]:checked';
-      $rightCheckedSelectors: #{$rightCheckedSelectors} +
-        'input[type="checkbox"][data-side="bottom-right"]:checked';
-      @if $j != $i {
-        $leftCheckedSelectors: #{$leftCheckedSelectors} + " ~ ";
-        $rightCheckedSelectors: #{$rightCheckedSelectors} + " ~ ";
-      }
-    }
-
-    @at-root {
-      &:has(#{$leftCheckedSelectors}) {
-        --bottom-left: #{90deg * $i};
-      }
-
-      &:has(#{$rightCheckedSelectors}) {
-        --bottom-right: #{-90deg * $i};
+        &:has(#{$rightCheckedSelectors}) {
+          --#{$side}-right: #{-90deg * $i};
+        }
       }
     }
   }
@@ -130,13 +83,10 @@ body:has(input#toggle-switch-checkbox:checked) .container {
     }
   }
   .cube-changer {
-    // top: 100px;
-    // left: 0px;
     z-index: 10000;
-
-    // transform: rotateY(35deg) rotateX(-35deg) rotateZ(0deg);
     animation: none !important;
     $rotate: 90deg;
+    cursor: pointer;
 
     .face {
       opacity: 0;
@@ -200,7 +150,6 @@ body:has(input#toggle-switch-checkbox:checked) .container {
       cursor: pointer;
       width: $switch-size * 2 + 4px;
       border: solid var(--text-color) 2px;
-      // background-color: var(--background-color);
       background-color: var(--default-bottom-color);
       height: $switch-size;
       border-radius: 9999px;
