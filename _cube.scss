@@ -9,8 +9,99 @@ $cube_size: 80px;
   // transition: all 800ms ease-in-out;
   transform: rotateY(35deg) rotateX(-35deg) rotateZ(0deg);
   &:hover {
-    animation: rotate-container 6000ms infinite ease-in-out;
+    // animation: rotate-container 6000ms infinite ease-in-out;
     // cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+
+.main-wrapper {
+  position: relative;
+  .y-top,
+  .y-middle,
+  .y-bottom {
+    animation: none !important;
+    // animation-play-state: paused;
+  }
+  --left: 0deg;
+  --right: 0deg;
+
+  @for $i from 1 through 3 {
+    $leftCheckedSelectors: "";
+    $rightCheckedSelectors: "";
+
+    @for $j from 1 through $i {
+      $leftCheckedSelectors: #{$leftCheckedSelectors} +
+        'input[type="checkbox"][data-side="left"]:checked';
+      $rightCheckedSelectors: #{$rightCheckedSelectors} +
+        'input[type="checkbox"][data-side="right"]:checked';
+      @if $j != $i {
+        $leftCheckedSelectors: #{$leftCheckedSelectors} + " ~ ";
+        $rightCheckedSelectors: #{$rightCheckedSelectors} + " ~ ";
+      }
+    }
+
+    @at-root {
+      &:has(#{$leftCheckedSelectors}) {
+        --left: #{90deg * $i};
+      }
+
+      &:has(#{$rightCheckedSelectors}) {
+        --right: #{-90deg * $i};
+      }
+    }
+  }
+
+  .y-top:not(.cube-changer) {
+    transition: rotate 1000ms;
+    rotate: y calc(var(--left) + var(--right)) !important;
+  }
+
+  .cube-changer {
+    // top: 100px;
+    // left: 0px;
+    z-index: 10000;
+    // transform: rotateY(35deg) rotateX(-35deg) rotateZ(0deg);
+    animation: none !important;
+    $rotate: 90deg;
+
+    .face {
+      background: red !important;
+      &--back {
+        transform: rotateY($rotate * 2) translateZ($cube_size * 2);
+      }
+      &--left {
+        width: $cube_size * 2;
+        transform: rotateY($rotate * -1) translateZ($cube_size)
+          translateX($cube_size * -1);
+      }
+      &--right {
+        width: $cube_size * 2;
+        transform: rotateY($rotate) translateZ(0) translateX($cube_size * 1);
+      }
+
+      &--bottom {
+        height: $cube_size * 2;
+        transform: rotateX($rotate * -1) translateZ(0)
+          translateY($cube_size * 1);
+      }
+      &--top {
+        height: $cube_size * 2;
+        transform: rotateX($rotate) translateZ($cube_size * 1)
+          translateY($cube_size * -1);
+      }
+      &--front {
+        transform: rotateY($rotate * -2) translateZ($cube_size * -0);
+      }
+    }
+  }
+
+  .toggle-bar {
+    p {
+      padding: 10px;
+      border-radius: 10px;
+      // height: calc(100px + (var(--left) - var(--right)));
+      background-color: teal;
+    }
   }
 }
 

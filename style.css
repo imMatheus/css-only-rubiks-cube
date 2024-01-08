@@ -27,8 +27,77 @@ body:has(.container:hover) {
   transform-style: preserve-3d;
   transform: rotateY(35deg) rotateX(-35deg) rotateZ(0deg);
 }
-.container:hover {
-  animation: rotate-container 6000ms infinite ease-in-out;
+.main-wrapper {
+  position: relative;
+  --left: 0deg;
+  --right: 0deg;
+}
+.main-wrapper .y-top,
+.main-wrapper .y-middle,
+.main-wrapper .y-bottom {
+  animation: none !important;
+}
+.main-wrapper:has(input[type=checkbox][data-side=left]:checked) {
+  --left: 90deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=right]:checked) {
+  --right: -90deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=left]:checked ~ input[type=checkbox][data-side=left]:checked) {
+  --left: 180deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=right]:checked ~ input[type=checkbox][data-side=right]:checked) {
+  --right: -180deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=left]:checked ~ input[type=checkbox][data-side=left]:checked ~ input[type=checkbox][data-side=left]:checked) {
+  --left: 270deg;
+}
+
+.main-wrapper:has(input[type=checkbox][data-side=right]:checked ~ input[type=checkbox][data-side=right]:checked ~ input[type=checkbox][data-side=right]:checked) {
+  --right: -270deg;
+}
+
+.main-wrapper .y-top:not(.cube-changer) {
+  transition: rotate 1000ms;
+  rotate: y calc(var(--left) + var(--right)) !important;
+}
+.main-wrapper .cube-changer {
+  z-index: 10000;
+  animation: none !important;
+}
+.main-wrapper .cube-changer .face {
+  background: red !important;
+}
+.main-wrapper .cube-changer .face--back {
+  transform: rotateY(180deg) translateZ(160px);
+}
+.main-wrapper .cube-changer .face--left {
+  width: 160px;
+  transform: rotateY(-90deg) translateZ(80px) translateX(-80px);
+}
+.main-wrapper .cube-changer .face--right {
+  width: 160px;
+  transform: rotateY(90deg) translateZ(0) translateX(80px);
+}
+.main-wrapper .cube-changer .face--bottom {
+  height: 160px;
+  transform: rotateX(-90deg) translateZ(0) translateY(80px);
+}
+.main-wrapper .cube-changer .face--top {
+  height: 160px;
+  transform: rotateX(90deg) translateZ(80px) translateY(-80px);
+}
+.main-wrapper .cube-changer .face--front {
+  transform: rotateY(-180deg) translateZ(0px);
+}
+.main-wrapper .toggle-bar p {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: teal;
 }
 
 @keyframes rotate-container {
@@ -51,6 +120,9 @@ body:has(.container:hover) {
   position: absolute;
   transform-style: preserve-3d;
 }
+.cube:not(.cube-changer) {
+  opacity: 0.8;
+}
 
 .face {
   position: absolute;
@@ -62,27 +134,27 @@ body:has(.container:hover) {
   transition: all 700ms;
 }
 .face--front {
-  background: var(--front-color, #000000cc);
+  background: var(--front-color, rgba(0, 0, 0, 0.8));
   transform: rotateY(0deg) translateZ(40px);
 }
 .face--back {
-  background: var(--back-color, #000000cc);
+  background: var(--back-color, rgba(0, 0, 0, 0.8));
   transform: rotateY(180deg) translateZ(40px);
 }
 .face--left {
-  background: var(--left-color, #000000cc);
+  background: var(--left-color, rgba(0, 0, 0, 0.8));
   transform: rotateY(-90deg) translateZ(40px);
 }
 .face--right {
-  background: var(--right-color, #000000cc);
+  background: var(--right-color, rgba(0, 0, 0, 0.8));
   transform: rotateY(90deg) translateZ(40px);
 }
 .face--top {
-  background: var(--top-color, #000000cc);
+  background: var(--top-color, rgba(0, 0, 0, 0.8));
   transform: rotateX(90deg) translateZ(40px);
 }
 .face--bottom {
-  background: var(--bottom-color, #000000cc);
+  background: var(--bottom-color, rgba(0, 0, 0, 0.8));
   transform: rotateX(-90deg) translateZ(40px);
 }
 
