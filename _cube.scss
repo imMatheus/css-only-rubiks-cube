@@ -9,8 +9,209 @@ $cube_size: 80px;
   // transition: all 800ms ease-in-out;
   transform: rotateY(35deg) rotateX(-35deg) rotateZ(0deg);
   &:hover {
-    animation: rotate-container 6000ms infinite ease-in-out;
     // cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+
+body:has(input#toggle-switch-checkbox:checked) .container {
+  animation: rotate-container 6000ms infinite ease-in-out;
+}
+
+.main-wrapper {
+  position: relative;
+  .y-top,
+  .y-middle,
+  .y-bottom {
+    animation: none !important;
+    // animation-play-state: paused;
+  }
+  --top-left: 0deg;
+  --top-right: 0deg;
+  --middle-left: 0deg;
+  --middle-right: 0deg;
+  --bottom-left: 0deg;
+  --bottom-right: 0deg;
+
+  @for $i from 1 through 20 {
+    $leftCheckedSelectors: "";
+    $rightCheckedSelectors: "";
+
+    @for $j from 1 through $i {
+      $leftCheckedSelectors: #{$leftCheckedSelectors} +
+        'input[type="checkbox"][data-side="top-left"]:checked';
+      $rightCheckedSelectors: #{$rightCheckedSelectors} +
+        'input[type="checkbox"][data-side="top-right"]:checked';
+      @if $j != $i {
+        $leftCheckedSelectors: #{$leftCheckedSelectors} + " ~ ";
+        $rightCheckedSelectors: #{$rightCheckedSelectors} + " ~ ";
+      }
+    }
+
+    @at-root {
+      &:has(#{$leftCheckedSelectors}) {
+        --top-left: #{90deg * $i};
+      }
+
+      &:has(#{$rightCheckedSelectors}) {
+        --top-right: #{-90deg * $i};
+      }
+    }
+  }
+
+  @for $i from 1 through 20 {
+    $leftCheckedSelectors: "";
+    $rightCheckedSelectors: "";
+
+    @for $j from 1 through $i {
+      $leftCheckedSelectors: #{$leftCheckedSelectors} +
+        'input[type="checkbox"][data-side="middle-left"]:checked';
+      $rightCheckedSelectors: #{$rightCheckedSelectors} +
+        'input[type="checkbox"][data-side="middle-right"]:checked';
+      @if $j != $i {
+        $leftCheckedSelectors: #{$leftCheckedSelectors} + " ~ ";
+        $rightCheckedSelectors: #{$rightCheckedSelectors} + " ~ ";
+      }
+    }
+
+    @at-root {
+      &:has(#{$leftCheckedSelectors}) {
+        --middle-left: #{90deg * $i};
+      }
+
+      &:has(#{$rightCheckedSelectors}) {
+        --middle-right: #{-90deg * $i};
+      }
+    }
+  }
+  @for $i from 1 through 20 {
+    $leftCheckedSelectors: "";
+    $rightCheckedSelectors: "";
+
+    @for $j from 1 through $i {
+      $leftCheckedSelectors: #{$leftCheckedSelectors} +
+        'input[type="checkbox"][data-side="bottom-left"]:checked';
+      $rightCheckedSelectors: #{$rightCheckedSelectors} +
+        'input[type="checkbox"][data-side="bottom-right"]:checked';
+      @if $j != $i {
+        $leftCheckedSelectors: #{$leftCheckedSelectors} + " ~ ";
+        $rightCheckedSelectors: #{$rightCheckedSelectors} + " ~ ";
+      }
+    }
+
+    @at-root {
+      &:has(#{$leftCheckedSelectors}) {
+        --bottom-left: #{90deg * $i};
+      }
+
+      &:has(#{$rightCheckedSelectors}) {
+        --bottom-right: #{-90deg * $i};
+      }
+    }
+  }
+
+  .y-top:not(.cube-changer) {
+    transition: rotate 1000ms;
+    rotate: y calc(var(--top-left) + var(--top-right)) !important;
+  }
+  .y-middle:not(.cube-changer) {
+    transition: rotate 1000ms;
+    rotate: y calc(var(--middle-left) + var(--middle-right)) !important;
+  }
+  .y-bottom:not(.cube-changer) {
+    transition: rotate 1000ms;
+    rotate: y calc(var(--bottom-left) + var(--bottom-right)) !important;
+  }
+
+  .cube-changer-input {
+    display: none;
+
+    &:checked + .cube-changer {
+      display: none;
+    }
+  }
+  .cube-changer {
+    // top: 100px;
+    // left: 0px;
+    z-index: 10000;
+
+    // transform: rotateY(35deg) rotateX(-35deg) rotateZ(0deg);
+    animation: none !important;
+    $rotate: 90deg;
+
+    .face {
+      opacity: 0;
+      &--back {
+        transform: rotateY($rotate * 2) translateZ($cube_size * 2.5);
+      }
+      &--front {
+        transform: rotateY($rotate * -2) translateZ($cube_size * -0.5);
+      }
+      &--left {
+        width: $cube_size * 3;
+        transform: rotateY($rotate * -1) translateZ($cube_size * 1.5)
+          translateX($cube_size * -1);
+      }
+      &--right {
+        width: $cube_size * 3;
+        transform: rotateY($rotate) translateZ($cube_size * -0.5)
+          translateX($cube_size * 1);
+      }
+
+      &--bottom {
+        height: $cube_size * 3;
+        transform: rotateX($rotate * -1) translateZ($cube_size * -0.5)
+          translateY($cube_size * 1);
+      }
+      &--top {
+        height: $cube_size * 3;
+        transform: rotateX($rotate) translateZ($cube_size * 1.5)
+          translateY($cube_size * -1);
+      }
+    }
+  }
+
+  .toggle-switch-container {
+    margin-top: 14px;
+    padding: 12px;
+    background-color: var(--default-bottom-color);
+    border: solid 4px;
+    border-radius: 9999px;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    display: flex;
+
+    input {
+      display: none;
+    }
+
+    $switch-size: 28px;
+
+    &:has(input:checked) .switch-ball {
+      margin-left: $switch-size + 4px;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .switch {
+      cursor: pointer;
+      width: $switch-size * 2 + 4px;
+      border: solid var(--text-color) 2px;
+      // background-color: var(--background-color);
+      background-color: var(--default-bottom-color);
+      height: $switch-size;
+      border-radius: 9999px;
+      .switch-ball {
+        border-radius: 9999px;
+        background-color: var(--text-color);
+        height: $switch-size - 4px;
+        width: $switch-size - 4px;
+        transition: all 400ms;
+      }
+    }
   }
 }
 

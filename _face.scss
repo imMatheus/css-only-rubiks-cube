@@ -6,6 +6,9 @@
   height: $cube_size;
   position: absolute;
   transform-style: preserve-3d;
+  &:not(.cube-changer) {
+    pointer-events: none;
+  }
 }
 
 .face {
